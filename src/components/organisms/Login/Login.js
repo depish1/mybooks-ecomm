@@ -7,7 +7,8 @@ import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   const history = useHistory();
-  const RedirectRegistration = (e, path) => {
+  const RedirectRegistration = (e) => {
+    const path = '/registration';
     e.preventDefault();
     history.push(path);
   };
@@ -17,11 +18,9 @@ const Login = () => {
       <HeadlinePrimary>Logowanie</HeadlinePrimary>
       <FormInput label="Adres Email:" name="email" id="email" />
       <FormInput label="Hasło:" name="pwd" id="pwd" type="password" />
-      <Button>Zaloguj się</Button>
+      <Button isPrimary>Zaloguj się</Button>
       <span className="login-text">Nie masz jeszcze konta?</span>
-      <Button isSecondary onClickHandler={RedirectRegistration} path="/registration">
-        Zarejestruj się
-      </Button>
+      <Button onClickHandler={RedirectRegistration}>Zarejestruj się</Button>
     </StyledLogin>
   );
 };

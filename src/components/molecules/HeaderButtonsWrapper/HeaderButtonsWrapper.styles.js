@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledHeaderButtonsWrapper = styled.div`
+const StyledHeaderButtonsWrapper = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;

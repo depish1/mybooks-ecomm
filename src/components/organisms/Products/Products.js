@@ -5,7 +5,6 @@ import ProductsList from 'components/organisms/ProductsList/ProductsList';
 const Products = () => {
   return (
     <StyledProducts>
-      Products
       <ProductsList />
     </StyledProducts>
   );

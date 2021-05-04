@@ -15,7 +15,7 @@ const Registration = () => {
       <FormInput isRequired label="Powtórz hasło:" name="pwd2" id="pwd2" type="password" />
       <FormInput isRequired label="Akceptuję regulamin  Mybook.com:" name="consent" id="consent" type="checkbox" />
 
-      <Button>Zarejestruj się</Button>
+      <Button isPrimary>Zarejestruj się</Button>
     </StyledRegistration>
   );
 };

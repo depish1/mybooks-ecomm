@@ -6,6 +6,10 @@ const Label = styled.label`
   position: relative;
   cursor: pointer;
 
+  &:last-of-type {
+    margin-bottom: 1rem;
+  }
+
   &.checkboxWrapper {
     flex-direction: row;
     align-items: center;
@@ -70,7 +74,7 @@ const Label = styled.label`
 
       &:checked + span::after {
         background-color: ${({ theme }) => theme.colors.primary};
-        color: ${({ theme }) => theme.colors.lightText};
+        color: ${({ theme }) => theme.colors.white};
         display: flex;
         justify-content: center;
         align-items: center;

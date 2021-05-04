@@ -1,8 +1,9 @@
 import StyledButton from './Button.styles';
 
-const Button = ({ isSecondary, children, onClickHandler, path = null }) => {
+const Button = ({ isPrimary, isToBasket, children, onClickHandler }) => {
+  const classString = (isPrimary ? 'primary' : null) + ' ' + (isToBasket ? 'toBasket' : null);
   return (
-    <StyledButton onClick={(e) => onClickHandler(e, path)} className={isSecondary ? 'secondary' : null}>
+    <StyledButton onClick={onClickHandler} className={classString}>
       {children}
     </StyledButton>
   );
