@@ -12,14 +12,22 @@ const StyledHeaderButton = styled(Link)`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: background-color 0.4s ease;
+  transition: background-color 0.3s ease;
   padding: 1.6rem 1rem;
   border-radius: 0.5rem;
   margin: 0 1rem;
   text-decoration: none;
 
+  @media only screen and (max-width: 1000px) {
+    font-size: 1rem;
+  }
+
   &:hover {
     background-color: ${({ theme }) => theme.colors.lightText};
+  }
+
+  &:active {
+    padding: 1.4rem 1rem;
   }
 `;
 

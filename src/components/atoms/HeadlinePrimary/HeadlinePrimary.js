@@ -1,7 +1,7 @@
 import StyledHeadlinePrimary from './HeadlinePrimary.styles';
 
-const HeadlinePrimary = ({ children }) => {
-  return <StyledHeadlinePrimary>{children}</StyledHeadlinePrimary>;
+const HeadlinePrimary = ({ text }) => {
+  return <StyledHeadlinePrimary>{text}</StyledHeadlinePrimary>;
 };
 
 export default HeadlinePrimary;

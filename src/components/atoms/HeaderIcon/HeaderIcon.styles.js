@@ -6,8 +6,14 @@ const StyledHeaderIcon = styled.div`
 
   svg {
     fill: ${({ theme }) => theme.colors.primary};
-    width: 40px;
-    height: 40px;
+    width: 32px;
+
+    height: 32px;
+
+    @media only screen and (max-width: 1000px) {
+      width: 24px;
+      height: 24px;
+    }
   }
 `;
 
@@ -24,6 +30,12 @@ export const StyledBasketCounter = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: 1000px) {
+    font-size: 0.8rem;
+    height: 1.2rem;
+    width: 1.2rem;
+  }
 `;
 
 export default StyledHeaderIcon;

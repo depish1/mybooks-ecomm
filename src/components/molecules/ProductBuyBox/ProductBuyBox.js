@@ -1,19 +1,30 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import StyledProductBuyBox from './ProductBuyBox.styles';
 import Button from 'components/atoms/Button/Button';
 import actions from 'redux/basket/actions';
 import { connect } from 'react-redux';
 
-const ProductBuyBox = ({ prod_price, prod_id, addProduct }) => {
+const ProductBuyBox = ({ prod_data, addProduct }) => {
+  const { prod_price, prod_id } = prod_data;
+  const [isSuccess, setIsSuccess] = useState(false);
+  useEffect(() => {
+    let timer;
+    if (isSuccess) {
+      timer = setTimeout(() => setIsSuccess(false), 1000);
+    }
+    return () => clearTimeout(timer);
+  }, [isSuccess]);
+
   const addProductToBasket = () => {
-    addProduct(prod_id);
+    addProduct(prod_data);
+    setIsSuccess(true);
   };
+
   return (
     <StyledProductBuyBox>
       <span className="price">{prod_price} zł</span>
-      <Button onClickHandler={addProductToBasket} isPrimary>
-        Dodaj do koszyka
-      </Button>
+      <Button isDisabled={isSuccess ? true : false} onClickHandler={addProductToBasket} isPrimary text="Dodaj do koszyka" />
+      <span className={`successMsg ${isSuccess ? 'isVisible' : null}`}>Produkt dodany do koszyka</span>
     </StyledProductBuyBox>
   );
 };

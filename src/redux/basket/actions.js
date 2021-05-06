@@ -5,8 +5,12 @@ const add = (product) => ({
   product,
 });
 
-const remove = (id) => ({
-  type: types.DELETE_PRODUCT,
+const removeOneProduct = (id) => ({
+  type: types.REMOVE_ONE_PRODUCT,
+  id,
+});
+const removeProduct = (id) => ({
+  type: types.REMOVE_PRODUCT,
   id,
 });
 const clear = (id) => ({
@@ -16,7 +20,8 @@ const clear = (id) => ({
 
 const actions = {
   add,
-  remove,
+  removeOneProduct,
+  removeProduct,
   clear,
 };
 

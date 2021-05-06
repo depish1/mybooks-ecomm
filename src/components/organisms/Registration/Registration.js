@@ -7,7 +7,7 @@ import Button from 'components/atoms/Button/Button';
 const Registration = () => {
   return (
     <StyledRegistration>
-      <HeadlinePrimary>Rejestracja</HeadlinePrimary>
+      <HeadlinePrimary text="Rejestracja" />
       <FormInput isRequired label="Imie:" name="name" id="name" />
       <FormInput isRequired label="Nazwisko:" name="surname" id="surname" />
       <FormInput isRequired label="Adres Email:" name="email" id="email" />
@@ -15,7 +15,7 @@ const Registration = () => {
       <FormInput isRequired label="Powtórz hasło:" name="pwd2" id="pwd2" type="password" />
       <FormInput isRequired label="Akceptuję regulamin  Mybook.com:" name="consent" id="consent" type="checkbox" />
 
-      <Button isPrimary>Zarejestruj się</Button>
+      <Button isPrimary text="Zarejestruj się" />
     </StyledRegistration>
   );
 };

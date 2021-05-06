@@ -11,10 +11,18 @@ const basketReducer = (state = initial_basket, action) => {
         ...state,
         list: [...state.list, action.product],
       };
-    case types.REMOVE_PRODUCT:
+    case types.REMOVE_ONE_PRODUCT:
+      const specificProdArr = state.list.filter((prod) => prod.id === action.id).pop();
+      const withoutProdArr = state.list.filter((prod) => prod.id !== action.id);
       return {
         ...state,
-        list: state.list.filter((prod) => prod.id !== action.id),
+        list: [...specificProdArr, ...withoutProdArr],
+      };
+    case types.REMOVE_PRODUCT:
+      const newProdList = state.list.filter((prod) => prod.id !== action.id);
+      return {
+        ...state,
+        list: [...newProdList],
       };
     case types.CLEAR_BASKET:
       return {

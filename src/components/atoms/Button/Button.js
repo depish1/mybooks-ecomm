@@ -1,10 +1,10 @@
 import StyledButton from './Button.styles';
 
-const Button = ({ isPrimary, isToBasket, children, onClickHandler }) => {
+const Button = ({ isDisabled = false, isPrimary, isToBasket, onClickHandler, text }) => {
   const classString = (isPrimary ? 'primary' : null) + ' ' + (isToBasket ? 'toBasket' : null);
   return (
-    <StyledButton onClick={onClickHandler} className={classString}>
-      {children}
+    <StyledButton disabled={isDisabled} onClick={onClickHandler} className={classString}>
+      {text}
     </StyledButton>
   );
 };

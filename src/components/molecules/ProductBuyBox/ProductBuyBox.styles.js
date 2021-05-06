@@ -7,12 +7,25 @@ const StyledProductBuyBox = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  height: 10rem;
   .price {
     font-size: 2.4rem;
     font-weight: bold;
     color: ${({ theme }) => theme.colors.special};
-    margin: 0.5rem 0;
+  }
+
+  .successMsg {
+    background-color: ${({ theme }) => theme.colors.successBg};
+    color: ${({ theme }) => theme.colors.successText};
+    border: 2px solid ${({ theme }) => theme.colors.successText};
+    display: none;
+    padding: 0.4rem 1rem;
+    font-weight: bold;
+
+    &.isVisible {
+      display: block;
+    }
   }
 `;
 

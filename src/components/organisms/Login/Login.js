@@ -15,12 +15,12 @@ const Login = () => {
 
   return (
     <StyledLogin>
-      <HeadlinePrimary>Logowanie</HeadlinePrimary>
+      <HeadlinePrimary text="Logowanie" />
       <FormInput label="Adres Email:" name="email" id="email" />
       <FormInput label="Hasło:" name="pwd" id="pwd" type="password" />
-      <Button isPrimary>Zaloguj się</Button>
+      <Button isPrimary text="Zaloguj się" />
       <span className="login-text">Nie masz jeszcze konta?</span>
-      <Button onClickHandler={RedirectRegistration}>Zarejestruj się</Button>
+      <Button onClickHandler={RedirectRegistration} text="Zarejestruj się" />
     </StyledLogin>
   );
 };

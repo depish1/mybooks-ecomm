@@ -6,10 +6,14 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.8rem 2rem;
   position: sticky;
   top: 0;
   z-index: 2;
+
+  @media only screen and (max-width: 1000px) {
+    padding: 0.4rem 1rem;
+  }
 `;
 
 export default StyledHeader;

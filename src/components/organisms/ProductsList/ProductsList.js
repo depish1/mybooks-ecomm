@@ -15,26 +15,16 @@ const downloadProducts = async () => {
 };
 
 const ProductsList = ({ products, setProducts }) => {
-  console.log('products', '=>', setProducts);
-
   useEffect(() => {
     const prodArr = downloadProducts();
     prodArr.then((x) => setProducts(x));
   }, [setProducts]);
+  window.uniqueArray = (a) => [...new Set(a.map((o) => JSON.stringify(o)))].map((s) => JSON.parse(s));
 
   return (
     <StyledProductsList>
-      {products.list?.map(({ prod_id, prod_author, prod_category, prod_name, prod_price, prod_year, prod_img_url }) => (
-        <ProductSection
-          key={prod_id}
-          prod_id={prod_id}
-          prod_category={prod_category}
-          prod_name={prod_name}
-          prod_price={prod_price}
-          prod_author={prod_author}
-          prod_year={prod_year}
-          prod_img_url={prod_img_url}
-        />
+      {products.list?.map((prod) => (
+        <ProductSection key={prod.prod_id} prod_data={prod} />
       ))}
     </StyledProductsList>
   );
