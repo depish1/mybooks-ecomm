@@ -2,19 +2,15 @@ import StyledBasketList from './BasketList.styles';
 
 import BasketListElement from 'components/molecules/BasketListElement/BasketListElement';
 import { connect } from 'react-redux';
+import { reduceBasket } from 'helpers';
 
 const BasketList = ({ basket }) => {
-  const uniqueBasket = [...new Set(basket.map((prod) => prod.prod_id))].map((id) => {
-    return {
-      ...basket.find((prod) => prod.prod_id === id),
-    };
-  });
-  console.log(basket);
+  const uniqueBasket = reduceBasket(basket);
   console.log(uniqueBasket);
 
   return (
     <StyledBasketList>
-      {uniqueBasket.map(({ prod_id, prod_name, prod_author, prod_price, prod_img_url }, i) => {
+      {uniqueBasket.map(({ prod_id, prod_name, prod_author, prod_price, prod_img_url, prod_quantity, prod_value }, i) => {
         return (
           <BasketListElement
             key={prod_id}
@@ -23,8 +19,8 @@ const BasketList = ({ basket }) => {
             prod_price={prod_price}
             prod_img_url={prod_img_url}
             prod_author={prod_author}
-            prod_quantity={basket.filter((prod) => prod.prod_id === prod_id).length}
-            lp={i + 1}
+            prod_quantity={prod_quantity}
+            prod_value={prod_value}
           />
         );
       })}

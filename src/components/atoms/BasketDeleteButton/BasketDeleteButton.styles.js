@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 const StyledBasketDeleteButton = styled.button`
   display: block;
-  width: 30px;
-  height: 30px;
-  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  font-size: 1.3rem;
   font-weight: bold;
   box-shadow: 1px 1px 10px 1px rgba(41, 47, 54, 0.4);
   background-color: ${({ theme }) => theme.colors.special};

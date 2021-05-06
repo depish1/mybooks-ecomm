@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import firebase from 'assets/firebase';
+import firebase from 'firebase.js';
 import { connect } from 'react-redux';
 import actions from 'redux/products/actions';
 import ProductSection from 'components/molecules/ProductSection/ProductSection';

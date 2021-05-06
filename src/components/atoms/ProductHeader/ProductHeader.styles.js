@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const StyledProductHeader = styled.header`
-  height: 4.5rem;
+  height: 4.7rem;
   padding: 0.5rem 1.2rem;
   position: relative;
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: ${({ theme }) => theme.colors.secondary};
   }

@@ -62,6 +62,7 @@ const Label = styled.label`
     box-shadow: 1px 1px 10px 1px rgba(41, 47, 54, 0.5);
     border-radius: 0.4rem;
     margin-bottom: 1rem;
+    font-size: 1rem;
 
     &[type='checkbox'] {
       position: absolute;

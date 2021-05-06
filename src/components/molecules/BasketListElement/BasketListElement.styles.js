@@ -1,30 +1,65 @@
 import styled from 'styled-components';
 
 const StyledBasketListElement = styled.li`
-  display: grid;
+  display: flex;
   width: 100%;
-  grid-template-columns: 7% 13% 34% 15% 6% 15% 10%;
-  max-height: 140px;
   font-weight: bold;
-  padding: 1rem 0;
 
-  div {
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+
+  .top {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    width: 50%;
+    padding: 1rem 0;
+    height: 140px;
+    position: relative;
+
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+    }
+  }
+
+  .bottom {
+    display: grid;
+    grid-template-columns: 30% 20% 30% 20%;
+    width: 50%;
+    padding: 1rem 0;
+    height: 140px;
+    position: relative;
+
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+    }
+  }
+
+  .description {
+    font-weight: 400;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 1rem;
+    color: ${({ theme }) => theme.colors.lightText};
+    font-style: italic;
+  }
+
+  .cell {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    padding: 1rem 0;
+    align-items: center;
+    font-size: 1.2rem;
+  }
 
-    &.center {
-      align-items: center;
-    }
+  .name {
+    align-items: start;
+    justify-content: center;
 
-    &.name {
-      flex-direction: column;
-      align-items: top;
-      justify-content: left;
-
-      span {
-        margin-top: 2rem;
-        font-weight: 400;
-      }
+    span {
+      margin-top: 1rem;
+      font-weight: 400;
     }
   }
 
@@ -32,9 +67,25 @@ const StyledBasketListElement = styled.li`
     background-color: ${({ theme }) => theme.colors.disabledText};
   }
 
+  &:last-of-type {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 100%;
+      z-index: 2;
+      bottom: -0.5rem;
+      height: 0.5rem;
+      background-color: ${({ theme }) => theme.colors.black};
+    }
+  }
+
   img {
     width: auto;
     max-height: 100px;
+    padding: 0 1rem;
   }
 `;
 

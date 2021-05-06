@@ -5,6 +5,7 @@ const StyledBasket = styled.main`
   box-shadow: 1px 1px 10px 1px rgba(41, 47, 54, 0.4);
   border-radius: 15px;
 
+  margin: 1rem 0;
   @media only screen and (max-width: 1050px) {
     width: 80%;
   }
@@ -15,12 +16,11 @@ const StyledBasket = styled.main`
     width: 95%;
   }
   @media only screen and (max-width: 650px) {
-    width: 99%;
+    width: 98%;
   }
 
   h2 {
-    margin: 1.5rem 1rem;
-    margin-bottom: 2rem;
+    margin: 2rem;
   }
 `;
 
