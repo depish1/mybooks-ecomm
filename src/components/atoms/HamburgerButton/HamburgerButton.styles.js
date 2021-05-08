@@ -10,8 +10,9 @@ const StyledHamburgerButton = styled.button`
   width: 4rem;
   transition: background-color 0.4s ease;
   border-radius: 0.5rem;
+  margin-right: 1rem;
 
-  @media only screen and (min-width: 700px) {
+  @media only screen and (min-width: 840px) {
     display: none;
   }
 
@@ -21,20 +22,16 @@ const StyledHamburgerButton = styled.button`
       &.hamburger- {
         &top {
           top: 50%;
-          transform: translateY(-50%);
+
           transform: rotate(45deg);
         }
         &bottom {
           top: 50%;
-          transform: translateY(-50%);
+
           transform: rotate(-45deg);
         }
       }
     }
-  }
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.lightText};
   }
 
   span {
@@ -44,7 +41,6 @@ const StyledHamburgerButton = styled.button`
     position: absolute;
     background-color: ${({ theme }) => theme.colors.white};
     left: 50%;
-    transform: translateX(-50%);
     transition: transform 0.8s ease-in-out;
     &.hamburger- {
       &top {

@@ -7,7 +7,7 @@ const StyledProductHeader = styled.header`
   h3 {
     font-size: 1.2rem;
     font-weight: bold;
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.text};
   }
 
   p {

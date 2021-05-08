@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-const StyledHeaderButton = styled(Link)`
+const StyledHeaderButton = styled.button`
   height: 2rem;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: ${({ theme }) => theme.colors.white};
   background-color: transparent;
   border: none;
@@ -18,16 +17,21 @@ const StyledHeaderButton = styled(Link)`
   margin: 0 1rem;
   text-decoration: none;
 
-  @media only screen and (max-width: 1000px) {
-    font-size: 1rem;
-  }
+  @media only screen and (max-width: 840px) {
+    font-size: 1.4rem;
+    color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.white};
+    width: 100%;
+    border-radius: 0;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.lightText};
+    &:nth-child(odd) {
+      background-color: ${({ theme }) => theme.colors.background};
+    }
   }
-
-  &:active {
-    padding: 1.4rem 1rem;
+  @media only screen and (min-width: 841px) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.blackHover};
+    }
   }
 `;
 

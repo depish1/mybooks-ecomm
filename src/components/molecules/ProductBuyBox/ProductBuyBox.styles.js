@@ -8,7 +8,7 @@ const StyledProductBuyBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 10rem;
+  height: 11rem;
   .price {
     font-size: 2.4rem;
     font-weight: bold;

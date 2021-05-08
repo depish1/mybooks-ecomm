@@ -1,5 +1,5 @@
-import basketReducer from './reducer';
-export { default as basketTypes } from './types';
-export { default as basketActions } from './actions';
+import menuReducer from './reducer';
+export { default as menuTypes } from './types';
+export { default as menuActions } from './actions';
 
-export default basketReducer;
+export default menuReducer;

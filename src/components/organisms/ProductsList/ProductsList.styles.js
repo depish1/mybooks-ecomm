@@ -4,23 +4,23 @@ const StyledProductsList = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  padding: 2rem 2rem;
-  column-gap: 1.5rem;
-  row-gap: 3rem;
+  column-gap: 1rem;
+  row-gap: 2rem;
+  padding: 2rem 1rem;
 
-  @media only screen and (min-width: 690px) {
+  @media only screen and (min-width: 650px) {
     grid-template-columns: 1fr 1fr;
   }
-  @media only screen and (min-width: 1030px) {
+  @media only screen and (min-width: 980px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  @media only screen and (min-width: 1370px) {
+  @media only screen and (min-width: 1250px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  @media only screen and (min-width: 1710) {
+  @media only screen and (min-width: 1600px) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
-  @media only screen and (min-width: 2050px) {
+  @media only screen and (min-width: 1950px) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 `;

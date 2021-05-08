@@ -64,7 +64,7 @@ const StyledBasketListElement = styled.li`
   }
 
   &:nth-child(odd) {
-    background-color: ${({ theme }) => theme.colors.disabledText};
+    background-color: ${({ theme }) => theme.colors.background};
   }
 
   &:last-of-type {

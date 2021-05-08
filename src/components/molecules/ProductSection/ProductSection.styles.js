@@ -6,6 +6,15 @@ const StyledProductSection = styled.section`
   overflow: hidden;
   width: 310px;
   margin: 0 auto;
+  background-color: #ffffff;
+
+  @media only screen and (max-width: 1030px) {
+    width: 280px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    width: 90%;
+  }
 `;
 
 export default StyledProductSection;

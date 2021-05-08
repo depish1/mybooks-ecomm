@@ -1,28 +1,22 @@
 import types from './types';
 
 const initial_basket = {
-  list: [],
+  isOpen: false,
 };
 
-const basketReducer = (state = initial_basket, action) => {
+const menuReducer = (state = initial_basket, action) => {
   switch (action.type) {
-    case types.ADD_PRODUCT:
+    case types.SWITCH_MENU:
       return {
-        ...state,
-        list: [...state.list, action.product],
+        isOpen: !state.isOpen,
       };
-    case types.REMOVE_PRODUCT:
+    case types.CLOSE_MENU:
       return {
-        ...state,
-        list: state.list.filter((prod) => prod.id !== action.id),
-      };
-    case types.CLEAR_BASKET:
-      return {
-        list: [],
+        isOpen: false,
       };
     default:
       return state;
   }
 };
 
-export default basketReducer;
+export default menuReducer;

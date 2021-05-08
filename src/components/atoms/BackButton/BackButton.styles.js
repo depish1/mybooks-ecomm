@@ -13,7 +13,7 @@ const StyledBackButton = styled.button`
   font-size: 1.5rem;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.background};
   }
 
   svg {

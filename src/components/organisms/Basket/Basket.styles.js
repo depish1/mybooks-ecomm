@@ -4,6 +4,7 @@ const StyledBasket = styled.main`
   width: 70%;
   box-shadow: 1px 1px 10px 1px rgba(41, 47, 54, 0.4);
   border-radius: 15px;
+  background-color: #ffffff;
 
   margin: 1rem 0;
   @media only screen and (max-width: 1050px) {

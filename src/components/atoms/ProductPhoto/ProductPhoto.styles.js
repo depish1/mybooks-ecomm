@@ -5,7 +5,7 @@ const StyledProductPhoto = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  width: 310px;
+  width: 100%;
   min-height: 230px;
   border-top: 1px solid ${({ theme }) => theme.colors.lightText};
   border-bottom: 1px solid ${({ theme }) => theme.colors.lightText};

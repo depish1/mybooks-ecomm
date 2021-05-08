@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Label = styled.label`
+const StyledFormField = styled.label`
   display: flex;
   flex-direction: column-reverse;
   position: relative;
@@ -42,7 +42,7 @@ const Label = styled.label`
         top: 50%;
         transform: translateY(-50%);
         right: 0;
-        color: ${({ theme }) => theme.colors.white};
+        color: ${({ theme }) => theme.colors.text};
         content: '';
         display: block;
         height: 1.2rem;
@@ -51,6 +51,10 @@ const Label = styled.label`
         border-radius: 0.4rem;
         box-shadow: 1px 1px 10px 1px rgba(41, 47, 54, 0.5);
         transition: all 0.2s ease-in-out;
+      }
+
+      &.isWrong {
+        border: 1px solid ${({ theme }) => theme.colors.special};
       }
     }
   }
@@ -63,6 +67,9 @@ const Label = styled.label`
     border-radius: 0.4rem;
     margin-bottom: 1rem;
     font-size: 1rem;
+    &.isWrong {
+      border: 1px solid ${({ theme }) => theme.colors.special};
+    }
 
     &[type='checkbox'] {
       position: absolute;
@@ -75,7 +82,7 @@ const Label = styled.label`
 
       &:checked + span::after {
         background-color: ${({ theme }) => theme.colors.primary};
-        color: ${({ theme }) => theme.colors.white};
+        color: ${({ theme }) => theme.colors.text};
         display: flex;
         justify-content: center;
         align-items: center;
@@ -93,4 +100,4 @@ const Label = styled.label`
   }
 `;
 
-export default Label;
+export default StyledFormField;

@@ -3,10 +3,12 @@ import Button from 'components/atoms/Button/Button';
 import BackButton from 'components/atoms/BackButton/BackButton';
 import { connect } from 'react-redux';
 import { reduceBasket } from 'helpers';
+import { useHistory } from 'react-router-dom';
+import { redirect } from 'helpers';
 
 const BasketSummary = ({ basket }) => {
   const uniqueBasket = reduceBasket(basket);
-  console.log(uniqueBasket);
+  const history = useHistory();
   return (
     <StyledBasketSummary>
       <StyledBasketSummaryBack>
@@ -23,7 +25,13 @@ const BasketSummary = ({ basket }) => {
           {'Liczba produktów: '}
           <span>{basket.length + ' sztuk'}</span>
         </p>
-        <Button isPrimary onClickHandler={() => {}} text="Wybierz sposób dostawy" />
+        <Button
+          isPrimary
+          onClickHandler={() => {
+            redirect(null, '/checkout', history);
+          }}
+          text="Przejdź do płatności"
+        />
       </StyledBasketSummaryData>
     </StyledBasketSummary>
   );

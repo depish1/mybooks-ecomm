@@ -9,7 +9,7 @@ const StyledHeader = styled.header`
   padding: 0.8rem 3rem;
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 3;
 
   @media only screen and (max-width: 1000px) {
     padding: 0.4rem 1rem;

@@ -19,7 +19,7 @@ const basketReducer = (state = initial_basket, action) => {
         list: [...specificProdArr, ...withoutProdArr],
       };
     case types.REMOVE_PRODUCT:
-      const newProdList = state.list.filter((prod) => prod.id !== action.id);
+      const newProdList = state.list.filter((prod) => prod.prod_id !== action.id);
       return {
         ...state,
         list: [...newProdList],

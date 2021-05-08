@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledRegistration = styled.form`
+const StyledSignUp = styled.form`
   width: 400px;
   max-width: 90vw;
   padding: 3rem;
@@ -10,6 +10,7 @@ const StyledRegistration = styled.form`
   box-shadow: 1px 1px 10px 1px rgba(41, 47, 54, 0.4);
   border-radius: 20px;
   margin: 2rem 1rem;
+  background-color: #ffffff;
 `;
 
-export default StyledRegistration;
+export default StyledSignUp;

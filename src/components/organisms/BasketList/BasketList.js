@@ -32,8 +32,4 @@ const mapStateToProps = (state) => ({
   basket: state.basket.list,
 });
 
-// const mapDispatchToProps = (dispatch) => ({
-//   setProducts: (products) => dispatch(actions.setProducts(products)),
-// });
-
 export default connect(mapStateToProps)(BasketList);

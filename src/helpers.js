@@ -13,3 +13,26 @@ export const reduceBasket = (basket) => {
     };
   });
 };
+
+export const redirect = (e, path, history) => {
+  e?.preventDefault();
+  history.push(path);
+};
+
+export const asyncLocalStorage = {
+  setItem: (key, value) => {
+    return Promise.resolve().then(function () {
+      localStorage.setItem(key, value);
+    });
+  },
+  getItem: (key) => {
+    return Promise.resolve().then(function () {
+      return localStorage.getItem(key);
+    });
+  },
+  removeItem: (key) => {
+    return Promise.resolve().then(function () {
+      return localStorage.removeItem(key);
+    });
+  },
+};

@@ -4,6 +4,7 @@ const StyledHeadlinePrimary = styled.h2`
   margin-bottom: 1rem;
   position: relative;
   width: fit-content;
+  z-index: 2;
 
   &::after {
     content: '';
