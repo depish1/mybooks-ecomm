@@ -5,6 +5,12 @@ const StyledFormField = styled.label`
   flex-direction: column-reverse;
   position: relative;
   cursor: pointer;
+  margin-bottom: 1rem;
+
+  .error {
+    color: ${({ theme }) => theme.colors.special};
+    font-size: 0.9rem;
+  }
 
   &:last-of-type {
     margin-bottom: 1rem;
@@ -20,7 +26,6 @@ const StyledFormField = styled.label`
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
     font-size: 1rem;
-    margin: 0.5rem 0;
 
     &.required::before {
       position: absolute;
@@ -52,10 +57,6 @@ const StyledFormField = styled.label`
         box-shadow: 1px 1px 10px 1px rgba(41, 47, 54, 0.5);
         transition: all 0.2s ease-in-out;
       }
-
-      &.isWrong {
-        border: 1px solid ${({ theme }) => theme.colors.special};
-      }
     }
   }
 
@@ -65,9 +66,10 @@ const StyledFormField = styled.label`
     box-sizing: border-box;
     box-shadow: 1px 1px 10px 1px rgba(41, 47, 54, 0.5);
     border-radius: 0.4rem;
-    margin-bottom: 1rem;
+    margin: 0.5rem 0;
+
     font-size: 1rem;
-    &.isWrong {
+    &.invalid {
       border: 1px solid ${({ theme }) => theme.colors.special};
     }
 

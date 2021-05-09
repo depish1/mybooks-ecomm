@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledSignIn = styled.form`
+const StyledSignIn = styled.div`
   width: 400px;
   max-width: 90vw;
   padding: 3rem;
@@ -11,6 +11,15 @@ const StyledSignIn = styled.form`
   border-radius: 20px;
   margin: 2rem 1rem;
   background-color: #ffffff;
+
+  p {
+    color: ${({ theme }) => theme.colors.special};
+    display: none;
+
+    &.isVisible {
+      display: block;
+    }
+  }
 
   .login-text {
     margin-top: 1rem;

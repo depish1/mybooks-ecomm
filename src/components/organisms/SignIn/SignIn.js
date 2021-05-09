@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import StyledSignIn from './SignIn.styles';
 import FormField from 'components/molecules/FormField/FormField';
 import HeadlinePrimary from 'components/atoms/HeadlinePrimary/HeadlinePrimary';
@@ -6,29 +6,29 @@ import Button from 'components/atoms/Button/Button';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from 'redux/user/index';
+import { loaderActions } from 'redux/loader/index';
 import firebase from 'firebase.js';
 import { redirect } from 'helpers';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
 
 const SignIn = ({ user, login, setLoader }) => {
-  const [loginCredential, setLoginCredential] = useState({ email: '', password: '' });
-  const [isWrong, setIsWrong] = useState({ email: false, password: false });
-  const [errors, setErrors] = useState([]);
+  const [isError, setIsError] = useState(false);
+  const validate = Yup.object({
+    email: Yup.string().email('Wpisz poprawny adres email').required('Email jest wymagany'),
+    password: Yup.string().required('Hasło jest wymagane'),
+  });
   const history = useHistory();
 
-  if (user.userData) redirect(null, '/', history);
+  useEffect(() => {
+    if (user.userData) redirect(null, '/', history);
+  }, [history, user.userData]);
 
-  const handleChange = (e) => {
-    setLoginCredential((prevState) => {
-      return { ...prevState, [e.target.id]: e.target.value };
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setErrors([]);
+  const handleSubmit = (values) => {
+    console.log(values.email, values.password);
     firebase
       .auth()
-      .signInWithEmailAndPassword(loginCredential.email, loginCredential.password)
+      .signInWithEmailAndPassword(values.email, values.password)
       .then(({ user }) => {
         login({
           uid: user.uid,
@@ -37,21 +37,35 @@ const SignIn = ({ user, login, setLoader }) => {
         redirect(null, '/', history);
       })
       .catch((error) => {
+        setIsError(true);
         console.log('errorCode: ', error.code);
         console.log('errorMessage: ', error.message);
-        setErrors('Adres email lub hasło nieprawidłowe. Spróbuj ponownie.');
       });
   };
 
   return (
-    <StyledSignIn>
-      <HeadlinePrimary text="Logowanie" />
-      <FormField label="Adres Email:" name="email" id="email" onChangeHandler={handleChange} />
-      <FormField label="Hasło:" name="password" id="password" type="password" onChangeHandler={handleChange} />
-      <Button isPrimary text="Zaloguj się" onClickHandler={handleSubmit} />
-      <span className="login-text">Nie masz jeszcze konta?</span>
-      <Button onClickHandler={(e) => redirect(e, '/signup', history)} text="Zarejestruj się" />
-    </StyledSignIn>
+    <Formik
+      initialValues={{
+        email: '',
+        password: '',
+      }}
+      validationSchema={validate}
+      onSubmit={(values) => handleSubmit(values)}
+    >
+      {(formik) => (
+        <StyledSignIn>
+          <HeadlinePrimary text="Logowanie" />
+          <Form>
+            <FormField label="Adres Email:" name="email" type="text" />
+            <FormField label="Hasło:" name="password" type="password" />
+            <Button isPrimary text="Zaloguj się" type="submit" />
+          </Form>
+          <p className={isError ? 'isVisible' : undefined}>Login lub hasło nieprawidłowe</p>
+          <span className="login-text">Nie masz jeszcze konta?</span>
+          <Button onClickHandler={(e) => redirect(e, '/signup', history)} text="Zarejestruj się" />
+        </StyledSignIn>
+      )}
+    </Formik>
   );
 };
 
@@ -61,6 +75,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   login: (userData) => dispatch(userActions.login(userData)),
+  setLoader: (isLoader) => dispatch(loaderActions.setLoader(isLoader)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

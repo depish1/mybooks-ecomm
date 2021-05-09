@@ -23,7 +23,7 @@ const ProductBuyBox = ({ prod_data, addProduct }) => {
   return (
     <StyledProductBuyBox>
       <span className="price">{prod_price} zł</span>
-      <Button isDisabled={isSuccess ? true : false} onClickHandler={addProductToBasket} isPrimary text="Dodaj do koszyka" />
+      <Button isDisabled={isSuccess ? true : false} onClickHandler={addProductToBasket} isPrimary text="Dodaj do koszyka" type="button" />
       <span className={`successMsg ${isSuccess ? 'isVisible' : null}`}>Produkt dodany do koszyka</span>
     </StyledProductBuyBox>
   );
