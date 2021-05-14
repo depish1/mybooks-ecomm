@@ -1,5 +1,4 @@
 import types from './types';
-import { asyncLocalStorage } from 'helpers';
 
 const initial_user = localStorage.getItem('myValueInLocalStorage') || {};
 

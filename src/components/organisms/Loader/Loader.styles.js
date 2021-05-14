@@ -9,7 +9,17 @@ const motion = () => keyframes`
   }
 `;
 
-export const Wrapper = styled.div`
+export const LoaderContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  background-color: rgba(1, 1, 1, 0.7);
+  position: fixed;
+  left: 0;
+  top: 0;
+`;
+
+export const LoaderWrapper = styled.div`
   display: inline-block;
   position: relative;
   width: 64px;
@@ -18,11 +28,6 @@ export const Wrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  span {
-    font-weight: bold;
-    color: ${({ theme }) => theme.colors.black};
-  }
 `;
 
 export const RingSpinner = styled.div`
@@ -35,7 +40,7 @@ export const RingSpinner = styled.div`
   border: 0.5rem solid ${({ theme }) => theme.colors.primary};
   border-radius: 50%;
   animation: ${(p) => motion(p)} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: ${({ theme }) => theme.colors.blackHover} transparent transparent transparent;
+  border-color: ${({ theme }) => theme.colors.primary} transparent transparent transparent;
   :nth-child(1) {
     animation-delay: -0.45s;
   }

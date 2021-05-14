@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const StyledFormField = styled.label`
   display: flex;
   flex-direction: column-reverse;
+  width: 100%;
   position: relative;
   cursor: pointer;
   margin-bottom: 1rem;
@@ -10,6 +11,10 @@ const StyledFormField = styled.label`
   .error {
     color: ${({ theme }) => theme.colors.special};
     font-size: 0.9rem;
+  }
+
+  &.isRow {
+    width: 45%;
   }
 
   &:last-of-type {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledSignUp = styled.div`
+const StyledAccount = styled.div`
   width: 400px;
   max-width: 90vw;
   padding: 3rem;
@@ -11,16 +11,6 @@ const StyledSignUp = styled.div`
   border-radius: 20px;
   margin: 2rem 1rem;
   background-color: #ffffff;
-
-  p {
-    margin-top: 0.5rem;
-    color: ${({ theme }) => theme.colors.special};
-    display: none;
-    font-weight: bold;
-    &.isVisible {
-      display: block;
-    }
-  }
 `;
 
-export default StyledSignUp;
+export default StyledAccount;

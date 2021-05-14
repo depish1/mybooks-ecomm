@@ -13,34 +13,48 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
 const SignIn = ({ user, login, setLoader }) => {
-  const [isError, setIsError] = useState(false);
-  const validate = Yup.object({
-    email: Yup.string().email('Wpisz poprawny adres email').required('Email jest wymagany'),
-    password: Yup.string().required('Hasło jest wymagane'),
-  });
+  const [error, setError] = useState(null);
   const history = useHistory();
-
   useEffect(() => {
     if (user.userData) redirect(null, '/', history);
   }, [history, user.userData]);
 
-  const handleSubmit = (values) => {
-    console.log(values.email, values.password);
-    firebase
+  const validate = Yup.object({
+    email: Yup.string().email('Wpisz poprawny adres email').required('Email jest wymagany'),
+    password: Yup.string().required('Hasło jest wymagane'),
+  });
+
+  const handleSubmit = async ({ email, password }) => {
+    setLoader(true);
+    setError(null);
+    await firebase
       .auth()
-      .signInWithEmailAndPassword(values.email, values.password)
+      .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
-        login({
-          uid: user.uid,
-          email: user.email,
-        });
-        redirect(null, '/', history);
+        console.log(user);
+        firebase
+          .firestore()
+          .collection('usersData')
+          .where('uid', '==', user.uid)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              console.log(doc.id, ' => ', doc.data());
+              login({
+                uid: user.uid,
+                email: user.email,
+                firstName: doc.data().firstName,
+                lastName: doc.data().lastName,
+              });
+              redirect(null, '/', history);
+            });
+          });
       })
       .catch((error) => {
-        setIsError(true);
-        console.log('errorCode: ', error.code);
-        console.log('errorMessage: ', error.message);
+        console.log(error);
+        setError('Login lub hasło nieprawidłowe');
       });
+    setLoader(false);
   };
 
   return (
@@ -60,7 +74,7 @@ const SignIn = ({ user, login, setLoader }) => {
             <FormField label="Hasło:" name="password" type="password" />
             <Button isPrimary text="Zaloguj się" type="submit" />
           </Form>
-          <p className={isError ? 'isVisible' : undefined}>Login lub hasło nieprawidłowe</p>
+          <p className={error ? 'isVisible' : undefined}>{error}</p>
           <span className="login-text">Nie masz jeszcze konta?</span>
           <Button onClickHandler={(e) => redirect(e, '/signup', history)} text="Zarejestruj się" />
         </StyledSignIn>

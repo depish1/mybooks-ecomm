@@ -12,7 +12,7 @@ const StyledHeadlinePrimary = styled.h2`
     bottom: 0px;
     left: 0;
     display: inline-block;
-    width: 120%;
+    width: 110%;
     height: 8px;
     background-color: ${({ theme }) => theme.colors.primary};
     z-index: -1;

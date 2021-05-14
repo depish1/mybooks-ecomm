@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import firebase from 'firebase.js';
 import { connect } from 'react-redux';
-import actions from 'redux/products/actions';
+import productsActions from 'redux/products/actions';
+import loaderActions from 'redux/loader/actions';
 import ProductSection from 'components/molecules/ProductSection/ProductSection';
 import StyledProductsList from './ProductsList.styles';
 
@@ -14,12 +15,13 @@ const downloadProducts = async () => {
   });
 };
 
-const ProductsList = ({ products, setProducts }) => {
+const ProductsList = ({ products, setProducts, setLoader }) => {
   useEffect(() => {
+    setLoader(true);
     const prodArr = downloadProducts();
     prodArr.then((x) => setProducts(x));
-  }, [setProducts]);
-  window.uniqueArray = (a) => [...new Set(a.map((o) => JSON.stringify(o)))].map((s) => JSON.parse(s));
+    setLoader(false);
+  }, [setProducts, setLoader]);
 
   return (
     <StyledProductsList>
@@ -35,7 +37,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setProducts: (products) => dispatch(actions.setProducts(products)),
+  setProducts: (products) => dispatch(productsActions.setProducts(products)),
+  setLoader: (isLoader) => dispatch(loaderActions.setLoader(isLoader)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);

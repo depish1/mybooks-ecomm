@@ -9,7 +9,6 @@ import { useHistory } from 'react-router-dom';
 
 const HeaderButton = ({ to, isLogout, isBasket, isProducts, children, closeMenu, logout }) => {
   const history = useHistory();
-  console.log(isLogout);
 
   const onClickHandler = (e) => {
     if (isLogout) {

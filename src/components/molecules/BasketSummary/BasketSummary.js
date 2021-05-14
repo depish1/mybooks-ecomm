@@ -30,6 +30,7 @@ const BasketSummary = ({ basket }) => {
           onClickHandler={() => {
             redirect(null, '/checkout', history);
           }}
+          isDisabled={basket.length ? false : true}
           text="Przejdź do płatności"
         />
       </StyledBasketSummaryData>

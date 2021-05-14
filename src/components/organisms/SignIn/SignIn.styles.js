@@ -13,9 +13,10 @@ const StyledSignIn = styled.div`
   background-color: #ffffff;
 
   p {
+    margin-top: 0.5rem;
     color: ${({ theme }) => theme.colors.special};
     display: none;
-
+    font-weight: bold;
     &.isVisible {
       display: block;
     }

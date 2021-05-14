@@ -5,7 +5,7 @@ import actions from 'redux/basket/actions';
 import { connect } from 'react-redux';
 
 const ProductBuyBox = ({ prod_data, addProduct }) => {
-  const { prod_price, prod_id } = prod_data;
+  const { prod_price } = prod_data;
   const [isSuccess, setIsSuccess] = useState(false);
   useEffect(() => {
     let timer;

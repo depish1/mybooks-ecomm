@@ -16,9 +16,6 @@ const StyledBasket = styled.main`
   @media only screen and (max-width: 750px) {
     width: 95%;
   }
-  @media only screen and (max-width: 650px) {
-    width: 98%;
-  }
 
   h2 {
     margin: 2rem;
