@@ -60,6 +60,7 @@ const StyledUserTransaction = styled.li`
     display: flex;
     flex-direction: column;
     margin: 0 0.5rem;
+    min-width: 30%;
 
     .header {
       font-size: 0.7rem;
