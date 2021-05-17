@@ -12,7 +12,7 @@ const StyledProductHeader = styled.header`
   }
 
   p {
-    margin-top: 0.3rem;
+    margin-top: 0.4rem;
     font-size: 0.8rem;
     color: ${({ theme }) => theme.colors.lightText};
     position: absolute;
