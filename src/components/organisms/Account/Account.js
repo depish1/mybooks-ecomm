@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { redirect } from 'helpers';
 import loaderActions from 'redux/loader/actions';
 import UserTransaction from 'components/molecules/UserTransaction/UserTransaction';
+import HeadlinePrimary from 'components/atoms/HeadlinePrimary/HeadlinePrimary';
 
 const Account = ({ user: { userData }, setLoader }) => {
   const history = useHistory();
@@ -32,10 +33,7 @@ const Account = ({ user: { userData }, setLoader }) => {
 
   return (
     <StyledAccount>
-      {Object.keys(userData).map((item) => {
-        return <p key={item}>{userData[item]}</p>;
-      })}
-
+      <HeadlinePrimary text="Historia transakcji" />
       {userTransactions ? userTransactions.map((transaction) => <UserTransaction transaction={transaction} />) : 'Nie masz transakcji.'}
     </StyledAccount>
   );

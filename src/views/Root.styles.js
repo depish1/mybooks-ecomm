@@ -7,6 +7,7 @@ const Container = styled.main`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
+  position: relative;
 `;
 
 export default Container;
