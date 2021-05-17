@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/sklep-elektro/static/js/main.bc805046.chunk.js",
-    "main.js.map": "/sklep-elektro/static/js/main.bc805046.chunk.js.map",
+    "main.js": "/sklep-elektro/static/js/main.e52a3f0c.chunk.js",
+    "main.js.map": "/sklep-elektro/static/js/main.e52a3f0c.chunk.js.map",
     "runtime-main.js": "/sklep-elektro/static/js/runtime-main.7f098901.js",
     "runtime-main.js.map": "/sklep-elektro/static/js/runtime-main.7f098901.js.map",
-    "static/js/2.d870ef12.chunk.js": "/sklep-elektro/static/js/2.d870ef12.chunk.js",
-    "static/js/2.d870ef12.chunk.js.map": "/sklep-elektro/static/js/2.d870ef12.chunk.js.map",
+    "static/js/2.3ab2ffdb.chunk.js": "/sklep-elektro/static/js/2.3ab2ffdb.chunk.js",
+    "static/js/2.3ab2ffdb.chunk.js.map": "/sklep-elektro/static/js/2.3ab2ffdb.chunk.js.map",
     "index.html": "/sklep-elektro/index.html",
-    "static/js/2.d870ef12.chunk.js.LICENSE.txt": "/sklep-elektro/static/js/2.d870ef12.chunk.js.LICENSE.txt",
+    "static/js/2.3ab2ffdb.chunk.js.LICENSE.txt": "/sklep-elektro/static/js/2.3ab2ffdb.chunk.js.LICENSE.txt",
     "static/media/AccIcon.20080e5c.svg": "/sklep-elektro/static/media/AccIcon.20080e5c.svg",
     "static/media/ArrowBack.b3e039ae.svg": "/sklep-elektro/static/media/ArrowBack.b3e039ae.svg",
     "static/media/ArrowIcon.7fc1e00e.svg": "/sklep-elektro/static/media/ArrowIcon.7fc1e00e.svg",
@@ -19,7 +19,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7f098901.js",
-    "static/js/2.d870ef12.chunk.js",
-    "static/js/main.bc805046.chunk.js"
+    "static/js/2.3ab2ffdb.chunk.js",
+    "static/js/main.e52a3f0c.chunk.js"
   ]
 }
