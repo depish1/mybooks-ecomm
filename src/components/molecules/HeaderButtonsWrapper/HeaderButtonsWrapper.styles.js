@@ -4,7 +4,7 @@ const StyledHeaderButtonsWrapper = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: top 0.7s ease-in-out 0.7s, background-color 0.7s ease-in-out;
+  transition: top 0.5s ease-in-out 0.5s, background-color 0.5s ease-in-out;
 
   z-index: 4;
 

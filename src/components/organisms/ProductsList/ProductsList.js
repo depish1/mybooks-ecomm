@@ -21,7 +21,7 @@ const ProductsList = ({ products, setProducts, setLoader }) => {
   useEffect(() => {
     const prodArr = downloadProducts(setLoader);
     prodArr.then((x) => setProducts(x));
-  }, []);
+  }, [setProducts, setLoader]);
 
   return (
     <StyledProductsList>

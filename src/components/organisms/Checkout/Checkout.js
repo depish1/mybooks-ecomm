@@ -40,7 +40,6 @@ const Checkout = ({ user, basket, setLoader, clear }) => {
       downloadUserTransactions();
     }
   }, [history, basket.list, setLoader]);
-  console.log(specialProducts);
 
   const handleSubmit = async ({ street, houseNumber, flatNumber, zipCode, city, delivery, payment }) => {
     setLoader(true);

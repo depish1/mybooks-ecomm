@@ -31,7 +31,6 @@ const SignIn = ({ user, login, setLoader }) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
-        console.log(user);
         firebase
           .firestore()
           .collection('usersData')
@@ -39,7 +38,6 @@ const SignIn = ({ user, login, setLoader }) => {
           .get()
           .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-              console.log(doc.id, ' => ', doc.data());
               login({
                 uid: user.uid,
                 email: user.email,

@@ -18,9 +18,10 @@ export const FormWrapper = styled.div`
   width: 100%;
 
   .row {
-   display: flex;
-   justify-content: space-between;
-   align-items: start;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
 `;
 export const RadioWrapper = styled.div`
   width: 100%;
