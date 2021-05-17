@@ -2,7 +2,7 @@ import GlobalStyle from 'assets/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
 import Header from 'components/organisms/Header/Header';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import Products from 'components/organisms/Products/Products';
 import SignIn from 'components/organisms/SignIn/SignIn';
 import Basket from 'components/organisms/Basket/Basket';

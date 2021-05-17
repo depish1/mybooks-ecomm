@@ -10,31 +10,38 @@ import HeadlinePrimary from 'components/atoms/HeadlinePrimary/HeadlinePrimary';
 
 const Account = ({ user: { userData }, setLoader }) => {
   const history = useHistory();
-  if (!userData) redirect(null, '/', history);
   const [userTransactions, setUserTransactions] = useState([]);
 
   useEffect(() => {
-    const downloadUserTransactions = async () => {
-      setLoader(true);
-      await firebase
-        .firestore()
-        .collection('transactions')
-        .where('uid', '==', userData.uid)
-        .get()
-        .then((querySnapshot) => {
-          console.log(querySnapshot);
-          setUserTransactions(querySnapshot.docs.map((doc) => doc.data()));
-        });
-      setLoader(false);
-    };
-
-    downloadUserTransactions();
+    if (!userData) {
+      redirect(null, '/', history);
+    } else {
+      const downloadUserTransactions = async () => {
+        setLoader(true);
+        await firebase
+          .firestore()
+          .collection('transactions')
+          .where('uid', '==', userData.uid)
+          .get()
+          .then((querySnapshot) => {
+            setUserTransactions(
+              querySnapshot.docs.map((doc) => {
+                return { ...doc.data(), trans_id: doc.id };
+              })
+            );
+          });
+        setLoader(false);
+      };
+      downloadUserTransactions();
+    }
   }, [history, userData, setLoader]);
 
   return (
     <StyledAccount>
       <HeadlinePrimary text="Historia transakcji" />
-      {userTransactions ? userTransactions.map((transaction) => <UserTransaction transaction={transaction} />) : 'Nie masz transakcji.'}
+      {userTransactions
+        ? userTransactions.map((transaction) => <UserTransaction key={transaction.trans_id} transaction={transaction} />)
+        : 'Nie masz transakcji.'}
     </StyledAccount>
   );
 };

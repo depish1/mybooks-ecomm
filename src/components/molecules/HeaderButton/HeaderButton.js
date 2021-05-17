@@ -14,7 +14,6 @@ const HeaderButton = ({ to, isLogout, isBasket, isProducts, children, closeMenu,
     if (isLogout) {
       logout();
     }
-    console.log('logout');
     redirect(e, to, history);
     closeMenu();
   };

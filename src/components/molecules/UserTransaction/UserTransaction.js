@@ -3,7 +3,6 @@ import StyledUserTransaction from './UserTransaction.styles';
 
 const UserTransaction = ({ transaction: { calendarDate, delivery, payment, products } }) => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(products);
   const handleClick = (e) => {
     setIsOpen((prev) => !prev);
   };
@@ -15,14 +14,7 @@ const UserTransaction = ({ transaction: { calendarDate, delivery, payment, produ
             <span className="header">Data</span>
             <span className="data">{calendarDate}</span>
           </p>
-          <p>
-            <span className="header">Liczba produktów</span>
-            <span className="data">
-              {products.reduce((prev, curr) => {
-                return prev + curr.prod_quantity;
-              }, 0)}
-            </span>
-          </p>
+
           <p>
             <span className="header">Cena</span>
             <span className="data">

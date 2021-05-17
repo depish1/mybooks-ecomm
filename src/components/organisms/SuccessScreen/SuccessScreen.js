@@ -7,7 +7,6 @@ import { useHistory } from 'react-router-dom';
 const SuccessScreen = () => {
   const history = useHistory();
   const handleClick = () => {
-    console.log('submit');
     redirect(null, '/', history);
   };
   return (

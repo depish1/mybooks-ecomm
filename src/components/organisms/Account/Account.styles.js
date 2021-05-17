@@ -14,6 +14,11 @@ const StyledAccount = styled.ul`
   margin: 2rem 1rem;
   background-color: #ffffff;
   list-style-type: none;
+
+  @media only screen and (max-width: 800px) {
+    width: 90vw;
+    padding: 2rem 1rem;
+  }
 `;
 
 export default StyledAccount;

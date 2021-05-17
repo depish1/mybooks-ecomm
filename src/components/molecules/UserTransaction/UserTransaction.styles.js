@@ -32,6 +32,11 @@ const StyledUserTransaction = styled.li`
     border-radius: 10px;
     margin: 0.2rem 0;
     cursor: pointer;
+    transition: all 0.5s ease;
+
+    @media only screen and (max-width: 800px) {
+      flex-direction: column;
+    }
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.background};
@@ -43,12 +48,18 @@ const StyledUserTransaction = styled.li`
       flex-direction: row;
       width: 45%;
       justify-content: space-between;
+      margin: 0.5rem 0;
+
+      @media only screen and (max-width: 800px) {
+        width: 100%;
+      }
     }
   }
 
   p {
     display: flex;
     flex-direction: column;
+    margin: 0 0.5rem;
 
     .header {
       font-size: 0.7rem;
@@ -66,6 +77,9 @@ const StyledUserTransaction = styled.li`
     border-radius: 5px;
     padding: 0 1rem;
 
+    @media only screen and (max-width: 800px) {
+      padding: 0 0.5rem;
+    }
     &.open {
       display: block;
     }
@@ -77,6 +91,10 @@ const StyledUserTransaction = styled.li`
     width: 100%;
     padding: 0.5rem 0;
     position: relative;
+
+    @media only screen and (max-width: 800px) {
+      flex-direction: column;
+    }
 
     &::after {
       position: absolute;
@@ -102,6 +120,11 @@ const StyledUserTransaction = styled.li`
       width: 45%;
       justify-content: space-between;
       padding: 0 2rem;
+      margin: 0.5rem 0;
+      @media only screen and (max-width: 800px) {
+        width: 100%;
+        padding: 0;
+      }
     }
   }
 `;
