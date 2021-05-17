@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import StyledCheckout, { FormWrapper } from './Checkout.styles';
 import FormField from 'components/molecules/FormField/FormField';
 import RadioField from 'components/molecules/RadioField/RadioField';
@@ -16,11 +16,31 @@ import * as Yup from 'yup';
 
 const Checkout = ({ user, basket, setLoader, clear }) => {
   const history = useHistory();
+  const [specialProducts, setSpecialProducts] = useState(false);
 
   useEffect(() => {
-    if (basket.list.length === 0) redirect(null, '/', history);
-  }, [history, basket.list]);
-  console.log();
+    if (basket.list.length === 0) {
+      redirect(null, '/', history);
+    } else {
+      const downloadUserTransactions = async () => {
+        setLoader(true);
+        await firebase
+          .firestore()
+          .collection('specialProducts')
+          .get()
+          .then((querySnapshot) => {
+            setSpecialProducts(
+              querySnapshot.docs.map((doc) => {
+                return { ...doc.data(), prod_id: doc.id };
+              })
+            );
+          });
+        setLoader(false);
+      };
+      downloadUserTransactions();
+    }
+  }, [history, basket.list, setLoader]);
+  console.log(specialProducts);
 
   const handleSubmit = async ({ street, houseNumber, flatNumber, zipCode, city, delivery, payment }) => {
     setLoader(true);
@@ -31,7 +51,31 @@ const Checkout = ({ user, basket, setLoader, clear }) => {
       delivery,
       payment,
       calendarDate: new Date().toJSON().slice(0, 10),
-      products: basket.unique,
+      products: [
+        ...basket.unique,
+        {
+          prod_author: null,
+          prod_category: 'delivery',
+          prod_id: specialProducts.filter((prod) => prod.prod_name === delivery)[0].prod_id,
+          prod_img_url: null,
+          prod_name: specialProducts.filter((prod) => prod.prod_name === delivery)[0].prod_name,
+          prod_price: specialProducts.filter((prod) => prod.prod_name === delivery)[0].prod_price,
+          prod_quantity: null,
+          prod_value: specialProducts.filter((prod) => prod.prod_name === delivery)[0].prod_price,
+          prod_year: null,
+        },
+        {
+          prod_author: null,
+          prod_category: 'payment',
+          prod_id: specialProducts.filter((prod) => prod.prod_name === payment)[0].prod_id,
+          prod_img_url: null,
+          prod_name: specialProducts.filter((prod) => prod.prod_name === payment)[0].prod_name,
+          prod_price: specialProducts.filter((prod) => prod.prod_name === payment)[0].prod_price,
+          prod_quantity: null,
+          prod_value: specialProducts.filter((prod) => prod.prod_name === payment)[0].prod_price,
+          prod_year: null,
+        },
+      ],
     };
     await firebase.firestore().collection('transactions').add(transaction);
 
@@ -79,13 +123,34 @@ const Checkout = ({ user, basket, setLoader, clear }) => {
             <FormField label="Miasto:" name="city" type="text" isTwoColumnsGrid />
           </FormWrapper>
           <RadioGroup label="Sposób dostawy:" name="delivery" id="delivery">
-            <RadioField label={{ option: 'Poczta Polska', defaultPrice: 8.99, add: 72 }} name="delivery" value="pocztaPolska" id="pocztaPolska" />
-            <RadioField label={{ option: 'Kurier DHL', defaultPrice: 12.99, add: 48 }} name="delivery" value="dhl" id="dhl" />
-            <RadioField label={{ option: 'Kurier UPS', defaultPrice: 11.99, add: 48 }} name="delivery" value="ups" id="ups" />
+            {specialProducts
+              ? specialProducts
+                  .filter((prod) => prod.prod_category === 'delivery')
+                  .map((delivery) => (
+                    <RadioField
+                      key={delivery.prod_id}
+                      label={{ option: delivery.prod_name, defaultPrice: delivery.prod_price, add: delivery.prod_add }}
+                      name={delivery.prod_category}
+                      value={delivery.prod_name}
+                      id={delivery.prod_short_name}
+                    />
+                  ))
+              : null}
           </RadioGroup>
           <RadioGroup label="Sposób płatności:" name="payment" id="payment">
-            <RadioField label={{ option: 'Płatność przelewem', defaultPrice: 0.0, add: 24 }} name="payment" value="cash" id="cash" />
-            <RadioField label={{ option: 'Płatność gotówką', defaultPrice: 4, add: 0 }} name="payment" value="transfer" id="transfer" />
+            {specialProducts
+              ? specialProducts
+                  .filter((prod) => prod.prod_category === 'payment')
+                  .map((payment) => (
+                    <RadioField
+                      key={payment.prod_id}
+                      label={{ option: payment.prod_name, defaultPrice: payment.prod_price, add: payment.prod_add }}
+                      name={payment.prod_category}
+                      value={payment.prod_name}
+                      id={payment.prod_short_name}
+                    />
+                  ))
+              : null}
           </RadioGroup>
 
           <Button isPrimary text="Zapłać" type="submit" />

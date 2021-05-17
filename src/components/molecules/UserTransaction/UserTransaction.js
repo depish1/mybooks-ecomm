@@ -54,7 +54,7 @@ const UserTransaction = ({ transaction: { calendarDate, delivery, payment, produ
             <div className="transline__bottom">
               <p>
                 <span className="header">Ilość</span>
-                <span className="data">{product.prod_quantity}</span>
+                <span className="data">{product.prod_quantity ?? '--'}</span>
               </p>
               <p>
                 <span className="header">Wartość</span>
