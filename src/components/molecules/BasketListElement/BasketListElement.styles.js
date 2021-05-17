@@ -4,6 +4,7 @@ const StyledBasketListElement = styled.li`
   display: flex;
   width: 100%;
   font-weight: bold;
+  padding: 0.5rem;
 
   @media only screen and (max-width: 800px) {
     flex-direction: column;
@@ -76,6 +77,7 @@ const StyledBasketListElement = styled.li`
       content: '';
       width: 100%;
       z-index: 2;
+      left: 0;
       bottom: -0.5rem;
       height: 0.5rem;
       background-color: ${({ theme }) => theme.colors.black};

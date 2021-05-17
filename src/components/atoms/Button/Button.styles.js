@@ -10,7 +10,7 @@ const StyledButton = styled.button`
   padding: 0.7rem;
   font-size: 1.2rem;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 0.5rem 0;
   cursor: pointer;
   box-sizing: border-box;

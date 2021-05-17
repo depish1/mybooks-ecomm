@@ -6,8 +6,10 @@ import loaderActions from 'redux/loader/actions';
 import ProductSection from 'components/molecules/ProductSection/ProductSection';
 import StyledProductsList from './ProductsList.styles';
 
-const downloadProducts = async () => {
+const downloadProducts = async (setLoader) => {
+  setLoader(true);
   const results = await firebase.firestore().collection('products').get();
+  setLoader(false);
   return results.docs.map((doc) => {
     const prod = { ...doc.data() };
     prod.prod_id = doc.id;
@@ -17,11 +19,9 @@ const downloadProducts = async () => {
 
 const ProductsList = ({ products, setProducts, setLoader }) => {
   useEffect(() => {
-    setLoader(true);
-    const prodArr = downloadProducts();
+    const prodArr = downloadProducts(setLoader);
     prodArr.then((x) => setProducts(x));
-    setLoader(false);
-  }, [setProducts, setLoader]);
+  }, []);
 
   return (
     <StyledProductsList>

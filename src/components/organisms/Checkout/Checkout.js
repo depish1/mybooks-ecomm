@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import StyledCheckout, { FormWrapper, RadioWrapper } from './Checkout.styles';
+import React, { useEffect } from 'react';
+import StyledCheckout, { FormWrapper } from './Checkout.styles';
 import FormField from 'components/molecules/FormField/FormField';
 import RadioField from 'components/molecules/RadioField/RadioField';
 import RadioGroup from 'components/molecules/RadioGroup/RadioGroup';
@@ -7,23 +7,37 @@ import HeadlinePrimary from 'components/atoms/HeadlinePrimary/HeadlinePrimary';
 import Button from 'components/atoms/Button/Button';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { userActions } from 'redux/user/index';
 import { loaderActions } from 'redux/loader/index';
 import { basketActions } from 'redux/basket/index';
 import firebase from 'firebase.js';
 import { redirect } from 'helpers';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-const Checkout = ({ user, basket, setLoader }) => {
+const Checkout = ({ user, basket, setLoader, clear }) => {
   const history = useHistory();
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    if (user.userData) redirect(null, '/', history);
-  }, [history, user.userData]);
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  useEffect(() => {
+    if (basket.list.length === 0) redirect(null, '/', history);
+  }, [history, basket.list]);
+  console.log();
+
+  const handleSubmit = async ({ street, houseNumber, flatNumber, zipCode, city, delivery, payment }) => {
+    setLoader(true);
+    const adress = { street, houseNumber, flatNumber, zipCode, city };
+    const transaction = {
+      uid: user.userData ? user.userData.uid : null,
+      adress,
+      delivery,
+      payment,
+      calendarDate: new Date().toJSON().slice(0, 10),
+      products: basket.unique,
+    };
+    await firebase.firestore().collection('transactions').add(transaction);
+
+    setLoader(false);
+    redirect(null, '/success-screen', history);
+    clear();
   };
 
   const validate = Yup.object({
@@ -73,15 +87,9 @@ const Checkout = ({ user, basket, setLoader }) => {
             <RadioField label={{ option: 'Płatność przelewem', defaultPrice: 0.0, add: 24 }} name="payment" value="cash" id="cash" />
             <RadioField label={{ option: 'Płatność gotówką', defaultPrice: 4, add: 0 }} name="payment" value="transfer" id="transfer" />
           </RadioGroup>
-          {/* <RadioWrapper>
-            <HeadlinePrimary text="Sposób płatności:" />
-            <RadioField option="Płatność przelewem" defaultPrice={0.0} add={24} name="payment" id="cash" />
-            <RadioField option="Płatność przy odbiorze" defaultPrice={4} add={2} name="payment" id="transfer" />
-          </RadioWrapper> */}
 
           <Button isPrimary text="Zapłać" type="submit" />
         </Form>
-        <p className={error ? 'isVisible' : undefined}>{error}</p>
       </StyledCheckout>
     </Formik>
   );
@@ -94,6 +102,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setLoader: (isLoader) => dispatch(loaderActions.setLoader(isLoader)),
+  clear: () => dispatch(basketActions.clear()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

@@ -2,15 +2,13 @@ import StyledBasketList from './BasketList.styles';
 
 import BasketListElement from 'components/molecules/BasketListElement/BasketListElement';
 import { connect } from 'react-redux';
-import { reduceBasket } from 'helpers';
 
 const BasketList = ({ basket }) => {
-  const uniqueBasket = reduceBasket(basket);
-  console.log(uniqueBasket);
+  const { unique } = basket;
 
   return (
     <StyledBasketList>
-      {uniqueBasket.map(({ prod_id, prod_name, prod_author, prod_price, prod_img_url, prod_quantity, prod_value }, i) => {
+      {unique.map(({ prod_id, prod_name, prod_author, prod_price, prod_img_url, prod_quantity, prod_value }, i) => {
         return (
           <BasketListElement
             key={prod_id}
@@ -29,7 +27,7 @@ const BasketList = ({ basket }) => {
 };
 
 const mapStateToProps = (state) => ({
-  basket: state.basket.list,
+  basket: state.basket,
 });
 
 export default connect(mapStateToProps)(BasketList);

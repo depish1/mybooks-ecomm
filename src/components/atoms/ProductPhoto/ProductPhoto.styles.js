@@ -7,8 +7,8 @@ const StyledProductPhoto = styled.div`
   padding: 0.5rem;
   width: 100%;
   min-height: 230px;
-  border-top: 1px solid ${({ theme }) => theme.colors.lightText};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.lightText};
+  /* border-top: 1px solid ${({ theme }) => theme.colors.lightText};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.lightText}; */
   grid-column: 1;
   grid-row: 2/4;
 

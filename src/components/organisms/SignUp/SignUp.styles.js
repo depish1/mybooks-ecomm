@@ -12,6 +12,10 @@ const StyledSignUp = styled.div`
   margin: 2rem 1rem;
   background-color: #ffffff;
 
+  @media only screen and (max-width: 600px) {
+    padding: 2rem;
+  }
+
   p {
     margin-top: 0.5rem;
     color: ${({ theme }) => theme.colors.special};

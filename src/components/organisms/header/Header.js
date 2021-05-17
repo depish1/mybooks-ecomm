@@ -7,7 +7,6 @@ import HamburgerButton from 'components/atoms/HamburgerButton/HamburgerButton';
 import { connect } from 'react-redux';
 
 const Header = ({ user }) => {
-  console.log(user);
   return (
     <StyledHeader>
       <Logo />

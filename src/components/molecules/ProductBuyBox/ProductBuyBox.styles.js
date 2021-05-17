@@ -23,6 +23,10 @@ const StyledProductBuyBox = styled.div`
     padding: 0.4rem 1rem;
     font-weight: bold;
 
+    @media only screen and (max-width: 600px) {
+      padding: 0.5rem 1rem;
+    }
+
     &.isVisible {
       display: block;
     }
