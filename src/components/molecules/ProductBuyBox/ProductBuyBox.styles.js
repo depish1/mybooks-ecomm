@@ -8,7 +8,7 @@ const StyledProductBuyBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 11rem;
+  height: 11.5rem;
   .price {
     font-size: 2.4rem;
     font-weight: bold;
@@ -20,12 +20,8 @@ const StyledProductBuyBox = styled.div`
     color: ${({ theme }) => theme.colors.successText};
     border: 2px solid ${({ theme }) => theme.colors.successText};
     display: none;
-    padding: 0.4rem 1rem;
+    padding: 0.2rem 1rem;
     font-weight: bold;
-
-    @media only screen and (max-width: 600px) {
-      padding: 0.5rem 1rem;
-    }
 
     &.isVisible {
       display: block;

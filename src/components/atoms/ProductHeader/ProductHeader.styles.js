@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledProductHeader = styled.header`
-  height: 5.4rem;
+  height: 5.7rem;
   padding: 1rem 1.2rem;
   position: relative;
 

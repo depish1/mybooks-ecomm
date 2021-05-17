@@ -12,7 +12,7 @@ const StyledHamburgerButton = styled.button`
   border-radius: 0.5rem;
   margin-right: 1rem;
 
-  @media only screen and (min-width: 840px) {
+  @media only screen and (min-width: 900px) {
     display: none;
   }
 

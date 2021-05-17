@@ -8,7 +8,7 @@ const StyledHeaderButtonsWrapper = styled.nav`
 
   z-index: 4;
 
-  @media only screen and (max-width: 840px) {
+  @media only screen and (max-width: 900px) {
     position: absolute;
     top: calc(-100vh + 4rem);
     left: 0;
