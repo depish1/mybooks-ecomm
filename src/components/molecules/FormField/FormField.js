@@ -10,7 +10,7 @@ const FormField = ({ label, isRequired, id, name, type, isRow }) => {
     <StyledFormField type={type} className={`${isCheckbox ? 'checkboxWrapper ' : ''}${isRow ? 'isRow' : ''}`} htmlFor={id}>
       <ErrorMessage name={name} component="span" className="error" />
       <input {...field} name={name} id={name} type={type} className={meta.touched && meta.error ? 'invalid' : undefined} />
-      <span className={'label ' + (isRequired ? 'required ' : null) + (isCheckbox ? 'checkbox' : null)}>{label}</span>
+      <span className={`label  ${isRequired ? 'required ' : null} ${isCheckbox ? 'checkbox' : null}`}>{label}</span>
     </StyledFormField>
   );
 };

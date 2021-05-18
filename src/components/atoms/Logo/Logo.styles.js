@@ -8,6 +8,7 @@ const StyledLogo = styled.button`
   border: none;
   cursor: pointer;
   border-radius: 10px;
+  padding: 0.1rem;
 
   &:active {
     background-color: ${({ theme }) => theme.colors.blackHover};

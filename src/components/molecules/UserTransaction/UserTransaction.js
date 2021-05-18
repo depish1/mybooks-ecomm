@@ -38,7 +38,7 @@ const UserTransaction = ({ transaction: { calendarDate, delivery, payment, produ
           </p>
         </div>
       </div>
-      <ul className={(isOpen ? 'open' : null) + ' translines'}>
+      <ul className={`${isOpen ? 'open' : null} translines`}>
         {products.map((product) => (
           <li key={product.prod_id} className="transline">
             <div className="transline__top">
