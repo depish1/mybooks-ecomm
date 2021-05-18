@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import StyledLogo from './Logo.styles';
 import { redirect } from 'helpers';
 import { useHistory } from 'react-router-dom';
@@ -26,5 +27,9 @@ const Logo = ({ closeMenu }) => {
 const mapDispatchToProps = (dispatch) => ({
   closeMenu: () => dispatch(menuActions.closeMenu()),
 });
+
+Logo.propTypes = {
+  closeMenu: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(Logo);

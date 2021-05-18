@@ -1,5 +1,6 @@
 import StyledBasketListElement from './BasketListElement.styles';
 import BasketDeleteButton from 'components/atoms/BasketDeleteButton/BasketDeleteButton';
+import PropTypes from 'prop-types';
 
 const BasketListElement = ({ prod_id, prod_name, prod_author, prod_price, prod_img_url, prod_quantity, prod_value }) => {
   return (
@@ -34,6 +35,15 @@ const BasketListElement = ({ prod_id, prod_name, prod_author, prod_price, prod_i
       </div>
     </StyledBasketListElement>
   );
+};
+BasketListElement.propTypes = {
+  prod_author: PropTypes.string.isRequired,
+  prod_id: PropTypes.string.isRequired,
+  prod_img_url: PropTypes.string.isRequired,
+  prod_name: PropTypes.string.isRequired,
+  prod_price: PropTypes.string.isRequired,
+  prod_value: PropTypes.string.isRequired,
+  prod_quantity: PropTypes.number.isRequired,
 };
 
 export default BasketListElement;

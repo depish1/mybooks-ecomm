@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import StyledSignIn from './SignIn.styles';
 import FormField from 'components/molecules/FormField/FormField';
 import HeadlinePrimary from 'components/atoms/HeadlinePrimary/HeadlinePrimary';
@@ -12,12 +13,12 @@ import { redirect } from 'helpers';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-const SignIn = ({ user, login, setLoader }) => {
+const SignIn = ({ userData, login, setLoader }) => {
   const [error, setError] = useState(null);
   const history = useHistory();
   useEffect(() => {
-    if (user.userData) redirect(null, '/', history);
-  }, [history, user.userData]);
+    if (userData) redirect(null, '/', history);
+  }, [history, userData]);
 
   const validate = Yup.object({
     email: Yup.string().email('Wpisz poprawny adres email').required('Email jest wymagany'),
@@ -89,5 +90,16 @@ const mapDispatchToProps = (dispatch) => ({
   login: (userData) => dispatch(userActions.login(userData)),
   setLoader: (isLoader) => dispatch(loaderActions.setLoader(isLoader)),
 });
+
+SignIn.propTypes = {
+  setLoader: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
+  userData: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    uid: PropTypes.string.isRequired,
+  }),
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

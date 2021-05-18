@@ -1,4 +1,5 @@
 import StyledRadioField from './RadioField.styles';
+import PropTypes from 'prop-types';
 
 import { Field } from 'formik';
 
@@ -15,6 +16,13 @@ const RadioField = ({ label, name, value }) => {
       <span className="price">{label.defaultPrice} zł</span>
     </StyledRadioField>
   );
+};
+
+RadioField.propTypes = {
+  label: PropTypes.shape({ option: PropTypes.string.isRequired, defaultPrice: PropTypes.string.isRequired, add: PropTypes.string.isRequired })
+    .isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default RadioField;

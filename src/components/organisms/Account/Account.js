@@ -1,4 +1,5 @@
 import StyledAccount from './Account.styles';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import firebase from 'firebase.js';
 import { useEffect, useState } from 'react';
@@ -8,7 +9,7 @@ import loaderActions from 'redux/loader/actions';
 import UserTransaction from 'components/molecules/UserTransaction/UserTransaction';
 import HeadlinePrimary from 'components/atoms/HeadlinePrimary/HeadlinePrimary';
 
-const Account = ({ user: { userData }, setLoader }) => {
+const Account = ({ userData, setLoader }) => {
   const history = useHistory();
   const [userTransactions, setUserTransactions] = useState([]);
 
@@ -47,10 +48,20 @@ const Account = ({ user: { userData }, setLoader }) => {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user,
+  userData: state.user.userData,
 });
 const mapDispatchToProps = (dispatch) => ({
   setLoader: (isLoader) => dispatch(loaderActions.setLoader(isLoader)),
 });
+
+Account.propTypes = {
+  setLoader: PropTypes.func.isRequired,
+  userData: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    uid: PropTypes.string.isRequired,
+  }),
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Account);

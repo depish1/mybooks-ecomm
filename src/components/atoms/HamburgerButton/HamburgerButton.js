@@ -1,4 +1,5 @@
 import StyledHamburgerButton from './HamburgerButton.styles';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { menuActions } from 'redux/menu/index';
 
@@ -19,5 +20,10 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = (state) => ({
   isOpen: state.menu.isOpen,
 });
+
+HamburgerButton.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  switchMenu: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HamburgerButton);

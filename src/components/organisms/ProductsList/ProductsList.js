@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import firebase from 'firebase.js';
 import { connect } from 'react-redux';
 import productsActions from 'redux/products/actions';
@@ -17,7 +18,7 @@ const downloadProducts = async (setLoader) => {
   });
 };
 
-const ProductsList = ({ products, setProducts, setLoader }) => {
+const ProductsList = ({ productsList, setProducts, setLoader }) => {
   useEffect(() => {
     const prodArr = downloadProducts(setLoader);
     prodArr.then((x) => setProducts(x));
@@ -25,7 +26,7 @@ const ProductsList = ({ products, setProducts, setLoader }) => {
 
   return (
     <StyledProductsList>
-      {products.list?.map((prod) => (
+      {productsList?.map((prod) => (
         <ProductSection key={prod.prod_id} prod_data={prod} />
       ))}
     </StyledProductsList>
@@ -33,12 +34,28 @@ const ProductsList = ({ products, setProducts, setLoader }) => {
 };
 
 const mapStateToProps = (state) => ({
-  products: state.products,
+  productsList: state.products.list,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setProducts: (products) => dispatch(productsActions.setProducts(products)),
   setLoader: (isLoader) => dispatch(loaderActions.setLoader(isLoader)),
 });
+
+ProductsList.propTypes = {
+  setLoader: PropTypes.func.isRequired,
+  setProducts: PropTypes.func.isRequired,
+  basketList: PropTypes.arrayOf(
+    PropTypes.shape({
+      prod_author: PropTypes.string.isRequired,
+      prod_category: PropTypes.string.isRequired,
+      prod_id: PropTypes.string.isRequired,
+      prod_img_url: PropTypes.string.isRequired,
+      prod_name: PropTypes.string.isRequired,
+      prod_price: PropTypes.string.isRequired,
+      prod_year: PropTypes.string.isRequired,
+    })
+  ),
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);

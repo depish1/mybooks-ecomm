@@ -3,6 +3,7 @@ import StyledProductBuyBox from './ProductBuyBox.styles';
 import Button from 'components/atoms/Button/Button';
 import actions from 'redux/basket/actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const ProductBuyBox = ({ prod_data, addProduct }) => {
   const { prod_price } = prod_data;
@@ -31,5 +32,18 @@ const ProductBuyBox = ({ prod_data, addProduct }) => {
 const mapDispatchToProps = (dispatch) => ({
   addProduct: (prod_id) => dispatch(actions.add(prod_id)),
 });
+
+ProductBuyBox.propTypes = {
+  prod_data: PropTypes.shape({
+    prod_author: PropTypes.string.isRequired,
+    prod_id: PropTypes.string.isRequired,
+    prod_img_url: PropTypes.string.isRequired,
+    prod_name: PropTypes.string.isRequired,
+    prod_price: PropTypes.string.isRequired,
+    prod_category: PropTypes.string.isRequired,
+    prod_year: PropTypes.string.isRequired,
+  }).isRequired,
+  addProduct: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(ProductBuyBox);

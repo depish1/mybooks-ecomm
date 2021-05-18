@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import StyledUserTransaction from './UserTransaction.styles';
+import PropTypes from 'prop-types';
 
 const UserTransaction = ({ transaction: { calendarDate, delivery, payment, products } }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleClick = (e) => {
+  const handleClick = () => {
     setIsOpen((prev) => !prev);
   };
   return (
@@ -66,6 +67,34 @@ const UserTransaction = ({ transaction: { calendarDate, delivery, payment, produ
       </ul>
     </StyledUserTransaction>
   );
+};
+
+UserTransaction.propTypes = {
+  transaction: PropTypes.shape({
+    calendarDate: PropTypes.string.isRequired,
+    delivery: PropTypes.string.isRequired,
+    payment: PropTypes.string.isRequired,
+    trans_id: PropTypes.string.isRequired,
+    uid: PropTypes.string.isRequired,
+    products: PropTypes.arrayOf(
+      PropTypes.shape({
+        prod_author: PropTypes.string,
+        prod_id: PropTypes.string.isRequired,
+        prod_img_url: PropTypes.string,
+        prod_name: PropTypes.string.isRequired,
+        prod_price: PropTypes.string.isRequired,
+        prod_value: PropTypes.string.isRequired,
+        prod_quantity: PropTypes.number,
+      })
+    ),
+    adress: PropTypes.shape({
+      city: PropTypes.string.isRequired,
+      flatNumber: PropTypes.string.isRequired,
+      houseNumber: PropTypes.number.isRequired,
+      street: PropTypes.string.isRequired,
+      zipCode: PropTypes.string.isRequired,
+    }),
+  }),
 };
 
 export default UserTransaction;

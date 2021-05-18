@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import StyledSignUp from './SignUp.styles';
 import FormField from 'components/molecules/FormField/FormField';
@@ -12,7 +13,7 @@ import firebase from 'firebase.js';
 import { userActions } from 'redux/user/index';
 import { loaderActions } from 'redux/loader/index';
 
-const SignUp = ({ user, login, setLoader }) => {
+const SignUp = ({ userData, login, setLoader }) => {
   const [error, setError] = useState(null);
   const validate = Yup.object({
     firstName: Yup.string().max(20, 'Maksymalnie 20 znaków').required('To pole jest wymagane'),
@@ -28,12 +29,11 @@ const SignUp = ({ user, login, setLoader }) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (user.userData) redirect(null, '/', history);
-  }, [history, user.userData]);
+    if (userData) redirect(null, '/', history);
+  }, [history, userData]);
 
   const handleSubmit = async ({ email, password, firstName, lastName, consent }) => {
     setLoader(true);
-    console.log(email, password, firstName, lastName, consent);
     setError(null);
     await firebase
       .auth()
@@ -76,9 +76,9 @@ const SignUp = ({ user, login, setLoader }) => {
       <StyledSignUp>
         <HeadlinePrimary text="Rejestracja" />
         <Form>
-          <FormField isRequired label="Imie:" name="firstName" id="firstName" />
-          <FormField isRequired label="Nazwisko:" name="lastName" id="lastName" />
-          <FormField isRequired label="Adres Email:" name="email" id="email" />
+          <FormField isRequired label="Imie:" name="firstName" id="firstName" type="text" />
+          <FormField isRequired label="Nazwisko:" name="lastName" id="lastName" type="text" />
+          <FormField isRequired label="Adres Email:" name="email" id="email" type="text" />
           <FormField isRequired label="Hasło:" name="password" id="password" type="password" />
           <FormField isRequired label="Powtórz hasło:" name="confirmPassword" id="confirmPassword" type="password" />
           <FormField isRequired label="Akceptuję regulamin  Mybook.com:" name="consent" id="consent" type="checkbox" />
@@ -98,5 +98,16 @@ const mapDispatchToProps = (dispatch) => ({
   login: (userData) => dispatch(userActions.login(userData)),
   setLoader: (isLoader) => dispatch(loaderActions.setLoader(isLoader)),
 });
+
+SignUp.propTypes = {
+  setLoader: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
+  userData: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    uid: PropTypes.string.isRequired,
+  }),
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

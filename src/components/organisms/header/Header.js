@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import StyledHeader from './Header.styles';
 import Logo from 'components/atoms/Logo/Logo';
 import HeaderButton from 'components/molecules/HeaderButton/HeaderButton';
@@ -6,7 +7,7 @@ import HeaderButtonsWrapper from 'components/molecules/HeaderButtonsWrapper/Head
 import HamburgerButton from 'components/atoms/HamburgerButton/HamburgerButton';
 import { connect } from 'react-redux';
 
-const Header = ({ user }) => {
+const Header = ({ userData }) => {
   return (
     <StyledHeader>
       <Logo />
@@ -15,8 +16,8 @@ const Header = ({ user }) => {
         <HeaderButton to="/products" isProducts>
           Oferta
         </HeaderButton>
-        {user.userData ? <HeaderButton to="/account">Twoje konto</HeaderButton> : <HeaderButton to="/signup">Zarejestruj się</HeaderButton>}
-        {user.userData ? <HeaderButton isLogout>Wyloguj się</HeaderButton> : <HeaderButton to="/signin">Zaloguj się</HeaderButton>}
+        {userData ? <HeaderButton to="/account">Twoje konto</HeaderButton> : <HeaderButton to="/signup">Zarejestruj się</HeaderButton>}
+        {userData ? <HeaderButton isLogout>Wyloguj się</HeaderButton> : <HeaderButton to="/signin">Zaloguj się</HeaderButton>}
         <HeaderButton to="/basket" isBasket>
           Koszyk
         </HeaderButton>
@@ -26,7 +27,16 @@ const Header = ({ user }) => {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user,
+  userData: state.user.userData,
 });
+
+Header.propTypes = {
+  userData: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    uid: PropTypes.string.isRequired,
+  }),
+};
 
 export default connect(mapStateToProps)(Header);

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import StyledCheckout, { FormWrapper } from './Checkout.styles';
 import FormField from 'components/molecules/FormField/FormField';
 import RadioField from 'components/molecules/RadioField/RadioField';
@@ -14,7 +15,7 @@ import { redirect } from 'helpers';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-const Checkout = ({ user, basket, setLoader, clear }) => {
+const Checkout = ({ userData, basket, setLoader, clear }) => {
   const history = useHistory();
   const [specialProducts, setSpecialProducts] = useState(false);
 
@@ -45,7 +46,7 @@ const Checkout = ({ user, basket, setLoader, clear }) => {
     setLoader(true);
     const adress = { street, houseNumber, flatNumber, zipCode, city };
     const transaction = {
-      uid: user.userData ? user.userData.uid : null,
+      uid: userData ? userData.uid : null,
       adress,
       delivery,
       payment,
@@ -121,36 +122,36 @@ const Checkout = ({ user, basket, setLoader, clear }) => {
             <FormField label="Kod pocztowy:" name="zipCode" type="text" isTwoColumnsGrid />
             <FormField label="Miasto:" name="city" type="text" isTwoColumnsGrid />
           </FormWrapper>
-          <RadioGroup label="Sposób dostawy:" name="delivery" id="delivery">
-            {specialProducts
-              ? specialProducts
-                  .filter((prod) => prod.prod_category === 'delivery')
-                  .map((delivery) => (
-                    <RadioField
-                      key={delivery.prod_id}
-                      label={{ option: delivery.prod_name, defaultPrice: delivery.prod_price, add: delivery.prod_add }}
-                      name={delivery.prod_category}
-                      value={delivery.prod_name}
-                      id={delivery.prod_short_name}
-                    />
-                  ))
-              : null}
-          </RadioGroup>
-          <RadioGroup label="Sposób płatności:" name="payment" id="payment">
-            {specialProducts
-              ? specialProducts
-                  .filter((prod) => prod.prod_category === 'payment')
-                  .map((payment) => (
-                    <RadioField
-                      key={payment.prod_id}
-                      label={{ option: payment.prod_name, defaultPrice: payment.prod_price, add: payment.prod_add }}
-                      name={payment.prod_category}
-                      value={payment.prod_name}
-                      id={payment.prod_short_name}
-                    />
-                  ))
-              : null}
-          </RadioGroup>
+          {specialProducts ? (
+            <RadioGroup label="Sposób dostawy:" name="delivery" id="delivery">
+              {specialProducts
+                .filter((prod) => prod.prod_category === 'delivery')
+                .map((delivery) => (
+                  <RadioField
+                    key={delivery.prod_id}
+                    label={{ option: delivery.prod_name, defaultPrice: delivery.prod_price, add: delivery.prod_add }}
+                    name={delivery.prod_category}
+                    value={delivery.prod_name}
+                    id={delivery.prod_short_name}
+                  />
+                ))}
+            </RadioGroup>
+          ) : null}
+          {specialProducts ? (
+            <RadioGroup label="Sposób płatności:" name="payment" id="payment">
+              {specialProducts
+                .filter((prod) => prod.prod_category === 'payment')
+                .map((payment) => (
+                  <RadioField
+                    key={payment.prod_id}
+                    label={{ option: payment.prod_name, defaultPrice: payment.prod_price, add: payment.prod_add }}
+                    name={payment.prod_category}
+                    value={payment.prod_name}
+                    id={payment.prod_short_name}
+                  />
+                ))}
+            </RadioGroup>
+          ) : null}
 
           <Button isPrimary text="Zapłać" type="submit" />
         </Form>
@@ -168,5 +169,42 @@ const mapDispatchToProps = (dispatch) => ({
   setLoader: (isLoader) => dispatch(loaderActions.setLoader(isLoader)),
   clear: () => dispatch(basketActions.clear()),
 });
+
+Checkout.propTypes = {
+  setLoader: PropTypes.func.isRequired,
+  clear: PropTypes.func.isRequired,
+  userData: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    uid: PropTypes.string.isRequired,
+  }),
+  basket: PropTypes.shape({
+    list: PropTypes.arrayOf(
+      PropTypes.shape({
+        prod_author: PropTypes.string.isRequired,
+        prod_category: PropTypes.string.isRequired,
+        prod_id: PropTypes.string.isRequired,
+        prod_img_url: PropTypes.string.isRequired,
+        prod_name: PropTypes.string.isRequired,
+        prod_price: PropTypes.string.isRequired,
+        prod_year: PropTypes.string.isRequired,
+      })
+    ),
+    unique: PropTypes.arrayOf(
+      PropTypes.shape({
+        prod_author: PropTypes.string.isRequired,
+        prod_category: PropTypes.string.isRequired,
+        prod_id: PropTypes.string.isRequired,
+        prod_img_url: PropTypes.string.isRequired,
+        prod_name: PropTypes.string.isRequired,
+        prod_price: PropTypes.string.isRequired,
+        prod_value: PropTypes.string.isRequired,
+        prod_year: PropTypes.string.isRequired,
+        prod_quantity: PropTypes.number.isRequired,
+      })
+    ),
+  }).isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
