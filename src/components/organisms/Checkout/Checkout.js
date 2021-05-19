@@ -19,8 +19,6 @@ const Checkout = ({ userData, basket, setLoader, clear }) => {
   const history = useHistory();
   const [specialProducts, setSpecialProducts] = useState(false);
 
-  console.log(userData);
-
   useEffect(() => {
     if (basket.list.length === 0) {
       redirect(null, '/', history);
