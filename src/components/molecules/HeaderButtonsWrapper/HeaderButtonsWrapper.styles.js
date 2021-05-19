@@ -20,7 +20,7 @@ const StyledHeaderButtonsWrapper = styled.nav`
     &.isVisible {
       top: 4rem;
       background-color: rgba(0, 0, 0, 0.6);
-      transition: top 0.7s ease-in-out, background-color 0.7s ease-in-out 0.7s;
+      transition: top 0.4s ease-in-out, background-color 0.4s ease-in-out 0.4s;
     }
   }
 `;

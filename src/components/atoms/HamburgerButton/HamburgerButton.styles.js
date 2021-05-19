@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 const StyledHamburgerButton = styled.button`
-  height: 0.6rem;
-  position: relative;
+  height: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: none;
   background-color: transparent;
   cursor: pointer;
-  padding: 1.6rem 1rem;
-  width: 4rem;
+  padding: 0.1rem;
+  width: 2.5rem;
   transition: background-color 0.4s ease;
   border-radius: 0.5rem;
   margin-right: 1rem;
@@ -21,13 +23,12 @@ const StyledHamburgerButton = styled.button`
       padding: 0;
       &.hamburger- {
         &top {
-          top: 50%;
-
           transform: rotate(45deg);
         }
+        &middle {
+          width: 0;
+        }
         &bottom {
-          top: 50%;
-
           transform: rotate(-45deg);
         }
       }
@@ -37,17 +38,15 @@ const StyledHamburgerButton = styled.button`
   span {
     width: 3rem;
     display: block;
-    height: 0.25rem;
-    position: absolute;
+    height: 0.2rem;
     background-color: ${({ theme }) => theme.colors.white};
-    left: 50%;
-    transition: transform 0.5s ease-in-out;
+    transition: all 0.4s ease-in-out;
     &.hamburger- {
       &top {
-        top: 1.1rem;
+        transform-origin: left top;
       }
       &bottom {
-        bottom: 1.1rem;
+        transform-origin: left bottom;
       }
     }
   }

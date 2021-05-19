@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
+  height: 4rem;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.black};
   display: flex;
@@ -12,7 +13,7 @@ const StyledHeader = styled.header`
   z-index: 3;
 
   @media only screen and (max-width: 1000px) {
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 0.5rem;
   }
 `;
 

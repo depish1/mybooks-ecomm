@@ -14,13 +14,13 @@ const StyledProductsList = styled.div`
   @media only screen and (min-width: 980px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  @media only screen and (min-width: 1250px) {
+  @media only screen and (min-width: 1280px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  @media only screen and (min-width: 1600px) {
+  @media only screen and (min-width: 1630px) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
-  @media only screen and (min-width: 1950px) {
+  @media only screen and (min-width: 1980px) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 `;

@@ -10,6 +10,7 @@ const HamburgerButton = ({ switchMenu, isOpen }) => {
   return (
     <StyledHamburgerButton className={isOpen ? 'isOpen' : null} onClick={handleSwitchMenu}>
       <span className="hamburger-top"></span>
+      <span className="hamburger-middle"></span>
       <span className="hamburger-bottom"></span>
     </StyledHamburgerButton>
   );
