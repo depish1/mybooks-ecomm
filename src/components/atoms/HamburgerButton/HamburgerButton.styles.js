@@ -41,7 +41,7 @@ const StyledHamburgerButton = styled.button`
     position: absolute;
     background-color: ${({ theme }) => theme.colors.white};
     left: 50%;
-    transition: transform 0.8s ease-in-out;
+    transition: transform 0.5s ease-in-out;
     &.hamburger- {
       &top {
         top: 1.1rem;

@@ -19,11 +19,13 @@ const Checkout = ({ userData, basket, setLoader, clear }) => {
   const history = useHistory();
   const [specialProducts, setSpecialProducts] = useState(false);
 
+  console.log(userData);
+
   useEffect(() => {
     if (basket.list.length === 0) {
       redirect(null, '/', history);
     } else {
-      const downloadUserTransactions = async () => {
+      const downloadSpecialProducts = async () => {
         setLoader(true);
         await firebase
           .firestore()
@@ -38,7 +40,7 @@ const Checkout = ({ userData, basket, setLoader, clear }) => {
           });
         setLoader(false);
       };
-      downloadUserTransactions();
+      downloadSpecialProducts();
     }
   }, [history, basket.list, setLoader]);
 
@@ -77,8 +79,8 @@ const Checkout = ({ userData, basket, setLoader, clear }) => {
         },
       ],
     };
+    console.log(transaction);
     await firebase.firestore().collection('transactions').add(transaction);
-
     setLoader(false);
     redirect(null, '/success-screen', history);
     clear();
@@ -161,7 +163,7 @@ const Checkout = ({ userData, basket, setLoader, clear }) => {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user,
+  userData: state.user.userData,
   basket: state.basket,
 });
 
