@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.js": "/sklep-elektro/static/js/main.ef46a09c.chunk.js",
-    "main.js.map": "/sklep-elektro/static/js/main.ef46a09c.chunk.js.map",
-    "runtime-main.js": "/sklep-elektro/static/js/runtime-main.7f098901.js",
-    "runtime-main.js.map": "/sklep-elektro/static/js/runtime-main.7f098901.js.map",
-    "static/js/2.a66cd1b6.chunk.js": "/sklep-elektro/static/js/2.a66cd1b6.chunk.js",
-    "static/js/2.a66cd1b6.chunk.js.map": "/sklep-elektro/static/js/2.a66cd1b6.chunk.js.map",
-    "index.html": "/sklep-elektro/index.html",
-    "static/js/2.a66cd1b6.chunk.js.LICENSE.txt": "/sklep-elektro/static/js/2.a66cd1b6.chunk.js.LICENSE.txt",
-    "static/media/AccIcon.20080e5c.svg": "/sklep-elektro/static/media/AccIcon.20080e5c.svg",
-    "static/media/ArrowBack.b3e039ae.svg": "/sklep-elektro/static/media/ArrowBack.b3e039ae.svg",
-    "static/media/ArrowIcon.7fc1e00e.svg": "/sklep-elektro/static/media/ArrowIcon.7fc1e00e.svg",
-    "static/media/BasketIcon.426ecc7f.svg": "/sklep-elektro/static/media/BasketIcon.426ecc7f.svg",
-    "static/media/LoginIcon.d3c02bbe.svg": "/sklep-elektro/static/media/LoginIcon.d3c02bbe.svg",
-    "static/media/LogoutIcon.c99a6b9d.svg": "/sklep-elektro/static/media/LogoutIcon.c99a6b9d.svg",
-    "static/media/RegistrationIcon.48503c3c.svg": "/sklep-elektro/static/media/RegistrationIcon.48503c3c.svg",
-    "static/media/SuccessIcon.f79b114b.svg": "/sklep-elektro/static/media/SuccessIcon.f79b114b.svg"
+    "main.js": "/mybooks-ecomm/static/js/main.dd81157e.chunk.js",
+    "main.js.map": "/mybooks-ecomm/static/js/main.dd81157e.chunk.js.map",
+    "runtime-main.js": "/mybooks-ecomm/static/js/runtime-main.e8e82930.js",
+    "runtime-main.js.map": "/mybooks-ecomm/static/js/runtime-main.e8e82930.js.map",
+    "static/js/2.c33ae2d9.chunk.js": "/mybooks-ecomm/static/js/2.c33ae2d9.chunk.js",
+    "static/js/2.c33ae2d9.chunk.js.map": "/mybooks-ecomm/static/js/2.c33ae2d9.chunk.js.map",
+    "index.html": "/mybooks-ecomm/index.html",
+    "static/js/2.c33ae2d9.chunk.js.LICENSE.txt": "/mybooks-ecomm/static/js/2.c33ae2d9.chunk.js.LICENSE.txt",
+    "static/media/AccIcon.20080e5c.svg": "/mybooks-ecomm/static/media/AccIcon.20080e5c.svg",
+    "static/media/ArrowBack.b3e039ae.svg": "/mybooks-ecomm/static/media/ArrowBack.b3e039ae.svg",
+    "static/media/ArrowIcon.7fc1e00e.svg": "/mybooks-ecomm/static/media/ArrowIcon.7fc1e00e.svg",
+    "static/media/BasketIcon.426ecc7f.svg": "/mybooks-ecomm/static/media/BasketIcon.426ecc7f.svg",
+    "static/media/LoginIcon.d3c02bbe.svg": "/mybooks-ecomm/static/media/LoginIcon.d3c02bbe.svg",
+    "static/media/LogoutIcon.c99a6b9d.svg": "/mybooks-ecomm/static/media/LogoutIcon.c99a6b9d.svg",
+    "static/media/RegistrationIcon.48503c3c.svg": "/mybooks-ecomm/static/media/RegistrationIcon.48503c3c.svg",
+    "static/media/SuccessIcon.f79b114b.svg": "/mybooks-ecomm/static/media/SuccessIcon.f79b114b.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7f098901.js",
-    "static/js/2.a66cd1b6.chunk.js",
-    "static/js/main.ef46a09c.chunk.js"
+    "static/js/runtime-main.e8e82930.js",
+    "static/js/2.c33ae2d9.chunk.js",
+    "static/js/main.dd81157e.chunk.js"
   ]
 }
