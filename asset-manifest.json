@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/sklep-elektro/static/js/main.b3918dc5.chunk.js",
-    "main.js.map": "/sklep-elektro/static/js/main.b3918dc5.chunk.js.map",
+    "main.js": "/sklep-elektro/static/js/main.ef46a09c.chunk.js",
+    "main.js.map": "/sklep-elektro/static/js/main.ef46a09c.chunk.js.map",
     "runtime-main.js": "/sklep-elektro/static/js/runtime-main.7f098901.js",
     "runtime-main.js.map": "/sklep-elektro/static/js/runtime-main.7f098901.js.map",
     "static/js/2.a66cd1b6.chunk.js": "/sklep-elektro/static/js/2.a66cd1b6.chunk.js",
@@ -20,6 +20,6 @@
   "entrypoints": [
     "static/js/runtime-main.7f098901.js",
     "static/js/2.a66cd1b6.chunk.js",
-    "static/js/main.b3918dc5.chunk.js"
+    "static/js/main.ef46a09c.chunk.js"
   ]
 }
