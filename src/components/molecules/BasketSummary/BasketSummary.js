@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Button from 'components/atoms/Button/Button';
 import BackButton from 'components/atoms/BackButton/BackButton';
 import { connect } from 'react-redux';
-import { reduceBasket } from 'helpers';
+import { reduceBasket } from 'utils/helpers';
 import { useHistory } from 'react-router-dom';
-import { redirect } from 'helpers';
+import { redirect } from 'utils/helpers';
 
 const BasketSummary = ({ basketList }) => {
   const uniqueBasket = reduceBasket(basketList);

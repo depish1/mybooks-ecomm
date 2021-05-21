@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import firebase from 'firebase.js';
+import firebase from 'utils/firebase.js';
 import { connect } from 'react-redux';
 import productsActions from 'redux/products/actions';
 import loaderActions from 'redux/loader/actions';

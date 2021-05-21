@@ -35,7 +35,7 @@ const StyledFormField = styled.label`
     &.required::before {
       position: absolute;
       left: -1rem;
-      top: 0.4rem;
+      top: 0;
       color: red;
       font-size: 1.2rem;
       font-weight: 900;

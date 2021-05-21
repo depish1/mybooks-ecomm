@@ -5,11 +5,11 @@ import StyledSignUp from './SignUp.styles';
 import FormField from 'components/molecules/FormField/FormField';
 import HeadlinePrimary from 'components/atoms/HeadlinePrimary/HeadlinePrimary';
 import Button from 'components/atoms/Button/Button';
-import { redirect } from 'helpers';
+import { redirect } from 'utils/helpers';
 import { connect } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import firebase from 'firebase.js';
+import firebase from 'utils/firebase.js';
 import { userActions } from 'redux/user/index';
 import { loaderActions } from 'redux/loader/index';
 

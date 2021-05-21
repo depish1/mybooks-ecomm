@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StyledLogo from './Logo.styles';
-import { redirect } from 'helpers';
+import { redirect } from 'utils/helpers';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { menuActions } from 'redux/menu/index';

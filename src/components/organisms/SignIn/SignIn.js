@@ -8,8 +8,8 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from 'redux/user/index';
 import { loaderActions } from 'redux/loader/index';
-import firebase from 'firebase.js';
-import { redirect } from 'helpers';
+import firebase from 'utils/firebase.js';
+import { redirect } from 'utils/helpers';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 

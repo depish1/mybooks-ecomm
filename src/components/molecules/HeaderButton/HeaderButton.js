@@ -4,7 +4,7 @@ import HeaderIcon from 'components/atoms/HeaderIcon/HeaderIcon';
 import { connect } from 'react-redux';
 import { menuActions } from 'redux/menu/index';
 import { userActions } from 'redux/user/index';
-import { redirect } from 'helpers';
+import { redirect } from 'utils/helpers';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 

@@ -1,7 +1,7 @@
 import StyledSuccessScreen from './SuccessScreen.styles';
 import { ReactComponent as SuccessIcon } from 'assets/icons/SuccessIcon.svg';
 import Button from 'components/atoms/Button/Button';
-import { redirect } from 'helpers';
+import { redirect } from 'utils/helpers';
 import { useHistory } from 'react-router-dom';
 
 const SuccessScreen = () => {

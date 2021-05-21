@@ -1,5 +1,5 @@
 import types from './types';
-import { reduceBasket } from 'helpers';
+import { reduceBasket } from 'utils/helpers';
 
 const initial_basket = {
   list: [],

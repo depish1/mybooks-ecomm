@@ -13,10 +13,12 @@ import Account from 'components/organisms/Account/Account';
 import Container from './Root.styles';
 import Loader from 'components/organisms/Loader/Loader';
 import { connect } from 'react-redux';
+import PageNavigationListener from 'utils/PageNavigationListener';
 
 const Root = ({ isLoader }) => {
   return (
     <Router>
+      <PageNavigationListener />
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
@@ -29,7 +31,7 @@ const Root = ({ isLoader }) => {
             <Route path="/checkout" component={Checkout} />
             <Route path="/account" component={Account} />
             <Route path="/success-screen" component={SuccessScreen} />
-            <Route exact path={['/', '/products', '/sklep-elektro']} component={Products} />
+            <Route exact path={['/', '/products', '/mybooks-ecomm']} component={Products} />
           </Switch>
         </Container>
       </ThemeProvider>

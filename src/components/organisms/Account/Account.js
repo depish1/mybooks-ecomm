@@ -1,10 +1,10 @@
 import StyledAccount from './Account.styles';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import firebase from 'firebase.js';
+import firebase from 'utils/firebase.js';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { redirect } from 'helpers';
+import { redirect } from 'utils/helpers';
 import loaderActions from 'redux/loader/actions';
 import UserTransaction from 'components/molecules/UserTransaction/UserTransaction';
 import HeadlinePrimary from 'components/atoms/HeadlinePrimary/HeadlinePrimary';
