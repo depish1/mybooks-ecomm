@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/mybooks-ecomm/static/js/main.4d151bbb.chunk.js",
-    "main.js.map": "/mybooks-ecomm/static/js/main.4d151bbb.chunk.js.map",
+    "main.js": "/mybooks-ecomm/static/js/main.6e8f7c3c.chunk.js",
+    "main.js.map": "/mybooks-ecomm/static/js/main.6e8f7c3c.chunk.js.map",
     "runtime-main.js": "/mybooks-ecomm/static/js/runtime-main.82dedd82.js",
     "runtime-main.js.map": "/mybooks-ecomm/static/js/runtime-main.82dedd82.js.map",
-    "static/js/2.65d37f52.chunk.js": "/mybooks-ecomm/static/js/2.65d37f52.chunk.js",
-    "static/js/2.65d37f52.chunk.js.map": "/mybooks-ecomm/static/js/2.65d37f52.chunk.js.map",
+    "static/js/2.b6a10cb1.chunk.js": "/mybooks-ecomm/static/js/2.b6a10cb1.chunk.js",
+    "static/js/2.b6a10cb1.chunk.js.map": "/mybooks-ecomm/static/js/2.b6a10cb1.chunk.js.map",
     "index.html": "/mybooks-ecomm/index.html",
-    "static/js/2.65d37f52.chunk.js.LICENSE.txt": "/mybooks-ecomm/static/js/2.65d37f52.chunk.js.LICENSE.txt",
+    "static/js/2.b6a10cb1.chunk.js.LICENSE.txt": "/mybooks-ecomm/static/js/2.b6a10cb1.chunk.js.LICENSE.txt",
     "static/media/AccIcon.20080e5c.svg": "/mybooks-ecomm/static/media/AccIcon.20080e5c.svg",
     "static/media/ArrowBack.b3e039ae.svg": "/mybooks-ecomm/static/media/ArrowBack.b3e039ae.svg",
     "static/media/ArrowIcon.7fc1e00e.svg": "/mybooks-ecomm/static/media/ArrowIcon.7fc1e00e.svg",
@@ -19,7 +19,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.82dedd82.js",
-    "static/js/2.65d37f52.chunk.js",
-    "static/js/main.4d151bbb.chunk.js"
+    "static/js/2.b6a10cb1.chunk.js",
+    "static/js/main.6e8f7c3c.chunk.js"
   ]
 }
