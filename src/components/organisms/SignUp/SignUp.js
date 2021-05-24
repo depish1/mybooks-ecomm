@@ -90,7 +90,7 @@ const SignUp = ({ userData, login, setLoader }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = ({ state }) => ({
   user: state.user,
 });
 

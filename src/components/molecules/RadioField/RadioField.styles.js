@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const StyledRadioField = styled.label`
   display: flex;
+  justify-content: space-around;
   align-items: center;
   position: relative;
   cursor: pointer;
