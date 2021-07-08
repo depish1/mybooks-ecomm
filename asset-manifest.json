@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/mybooks-ecomm/static/js/main.da2412c0.chunk.js",
-    "main.js.map": "/mybooks-ecomm/static/js/main.da2412c0.chunk.js.map",
+    "main.js": "/mybooks-ecomm/static/js/main.cf08f4a8.chunk.js",
+    "main.js.map": "/mybooks-ecomm/static/js/main.cf08f4a8.chunk.js.map",
     "runtime-main.js": "/mybooks-ecomm/static/js/runtime-main.82dedd82.js",
     "runtime-main.js.map": "/mybooks-ecomm/static/js/runtime-main.82dedd82.js.map",
     "static/js/2.b6a10cb1.chunk.js": "/mybooks-ecomm/static/js/2.b6a10cb1.chunk.js",
@@ -20,6 +20,6 @@
   "entrypoints": [
     "static/js/runtime-main.82dedd82.js",
     "static/js/2.b6a10cb1.chunk.js",
-    "static/js/main.da2412c0.chunk.js"
+    "static/js/main.cf08f4a8.chunk.js"
   ]
 }
