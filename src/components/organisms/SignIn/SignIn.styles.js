@@ -21,8 +21,10 @@ const StyledSignIn = styled.div`
     color: ${({ theme }) => theme.colors.special};
     display: none;
     font-weight: bold;
+    width: 100%;
+    text-align: center;
     &.isVisible {
-      display: block;
+      display: inline-block;
     }
   }
 

@@ -65,19 +65,17 @@ const SignIn = ({ userData, login, setLoader }) => {
       validationSchema={validate}
       onSubmit={(values) => handleSubmit(values)}
     >
-      {(formik) => (
-        <StyledSignIn>
-          <HeadlinePrimary text="Logowanie" />
-          <Form>
-            <FormField label="Adres Email:" name="email" type="text" />
-            <FormField label="Hasło:" name="password" type="password" />
-            <Button isPrimary text="Zaloguj się" type="submit" />
-          </Form>
-          <p className={error ? 'isVisible' : undefined}>{error}</p>
-          <span className="login-text">Nie masz jeszcze konta?</span>
-          <Button onClickHandler={(e) => redirect(e, '/signup', history)} text="Zarejestruj się" />
-        </StyledSignIn>
-      )}
+      <StyledSignIn>
+        <HeadlinePrimary text="Logowanie" />
+        <Form>
+          <FormField label="Adres Email:" name="email" type="text" />
+          <FormField label="Hasło:" name="password" type="password" />
+          <Button isPrimary text="Zaloguj się" type="submit" />
+        </Form>
+        <p className={error ? 'isVisible' : undefined}>{error}</p>
+        <span className="login-text">Nie masz jeszcze konta?</span>
+        <Button onClickHandler={(e) => redirect(e, '/signup', history)} text="Zarejestruj się" />
+      </StyledSignIn>
     </Formik>
   );
 };

@@ -19,6 +19,7 @@ const StyledProductBuyBox = styled.div`
     background-color: ${({ theme }) => theme.colors.successBg};
     color: ${({ theme }) => theme.colors.successText};
     border: 2px solid ${({ theme }) => theme.colors.successText};
+    border-radius: 20px;
     display: none;
     padding: 0.2rem 1rem;
     font-weight: bold;
